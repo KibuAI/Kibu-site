@@ -165,9 +165,15 @@
                             <strong>"이 학생이 실제로 무엇을 했는지"</strong> 찾아내어 생기부 소재로 녹여냅니다.
                         </p>
                         <ul class="list-unstyled check-list">
-                            <li><i class="bi bi-check-circle-fill"></i> 손글씨 활동지, 스캔된 PDF 인식 가능</li>
-                            <li><i class="bi bi-check-circle-fill"></i> 여러 개의 외부 자료를 종합하여 분석</li>
-                        </ul>
+                        <li class="align-items-start">
+                            <i class="bi bi-check-circle-fill mt-1"></i> 
+                            <div>
+                                손글씨 활동지, 스캔된 PDF 인식 가능<br>
+            <span class="text-primary fw-bold" style="font-size: 0.85rem;">* Gemini 모델에서 인식률이 높습니다</span>
+        </div>
+    </li>
+    <li><i class="bi bi-check-circle-fill"></i> 여러 개의 외부 자료를 종합하여 분석</li>
+</ul>
                     </div>
                 </div>
                 <div class="col-lg-6 order-lg-1" data-aos="fade-right">
@@ -316,17 +322,29 @@
                     Windows 전용 무설치 버전입니다.
                 </p>
 
-                <div class="download-box mx-auto" style="max-width: 800px; background: rgba(255,255,255,0.05); border-radius: 20px; padding: 40px;">
-                    <a href="https://github.com/wawosuho-sketch/Kibu-site/releases/download/v1.0.0/Kibu.zip" class="btn btn-primary-c btn-lg px-5 py-3 mb-3 w-100 w-md-auto">
-                        <i class="bi bi-download me-2"></i> Kibu v1.0.0 다운로드
-                    </a>
-                    <div class="mt-3 text-white-50 small">
-                        <i class="bi bi-info-circle me-1"></i> 실행이 안 되시나요? 
-                        <a href="https://dotnet.microsoft.com/en-us/download/dotnet/thank-you/runtime-desktop-8.0.0-windows-x64-installer" target="_blank" class="text-success text-decoration-underline">
-                            .NET Desktop Runtime 8.0 설치하기
-                        </a>
-                    </div>
-                </div>
+<div class="download-box mx-auto" style="max-width: 800px; background: rgba(255,255,255,0.05); border-radius: 20px; padding: 40px;">
+    
+    <div class="text-start mx-auto mb-4 p-3 rounded-3" style="background: rgba(0,0,0,0.3); max-width: 600px; border: 1px solid rgba(255,255,255,0.1);">
+        <div class="d-flex align-items-center mb-2">
+            <span class="badge bg-success me-2">New</span>
+            <span class="text-white fw-bold" style="font-size: 0.9rem;">2025.11.25. 업데이트</span>
+        </div>
+        <ul class="text-white-50 small mb-0 ps-3" style="line-height: 1.6;">
+            <li>각 학생별 외부자료 입력 후 [전체 학생 작성] 기능 추가</li>
+            <li>스캔본/이미지 인식을 위한 제미나이(Gemini) 모델 연동 추가</li>
+        </ul>
+    </div>
+    <a href="https://github.com/wawosuho-sketch/Kibu-site/releases/download/v1.0.0/Kibu.zip" class="btn btn-primary-c btn-lg px-5 py-3 mb-3 w-100 w-md-auto">
+        <i class="bi bi-download me-2"></i> Kibu v1.0.0 다운로드
+    </a>
+    
+    <div class="mt-3 text-white-50 small">
+        <i class="bi bi-info-circle me-1"></i> 실행이 안 되시나요? 
+        <a href="https://dotnet.microsoft.com/en-us/download/dotnet/thank-you/runtime-desktop-8.0.0-windows-x64-installer" target="_blank" class="text-success text-decoration-underline">
+            .NET Desktop Runtime 8.0 설치하기
+        </a>
+    </div>
+</div>
 
                 <div id="docs" class="row g-4 mt-5 justify-content-center">
                     <div class="col-md-3 col-6">
@@ -377,5 +395,6 @@
 </body>
 
 </html>
+
 
 
