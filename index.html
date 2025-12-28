@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kibu (수호천사) | 선생님을 위한 완벽한 생기부 파트너</title>
+    <title>Kibu (수호천사) v1.2 | 선생님을 위한 완벽한 생기부 파트너</title>
     
     <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/static/pretendard.css" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -16,21 +16,19 @@
             --font-main: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
             
             /* 컬러 팔레트: 차분하고 고급스러운 톤 */
-            --primary: #0f172a;       /* Slate 900: 메인 텍스트, 헤드라인 (거의 검정에 가까운 남색) */
-            --secondary: #475569;     /* Slate 600: 본문 텍스트 */
-            --accent: #10b981;        /* Emerald 500: 강조, 브랜드 컬러 */
-            --bg-light: #f8fafc;      /* Slate 50: 아주 연한 회색 배경 */
+            --primary: #0f172a;       /* Slate 900 */
+            --secondary: #475569;     /* Slate 600 */
+            --accent: #10b981;        /* Emerald 500 */
+            --bg-light: #f8fafc;      /* Slate 50 */
             --bg-white: #ffffff;      
             
             /* UI 요소 */
-            --radius-md: 16px;        /* 카드 라운드 */
-            --radius-lg: 24px;        /* 큰 섹션 라운드 */
-            --radius-pill: 50px;      /* 버튼 */
+            --radius-md: 16px;
+            --radius-lg: 24px;
+            --radius-pill: 50px;
             --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
             --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.025);
-            --shadow-glow: 0 0 40px -10px rgba(16, 185, 129, 0.3); /* 은은한 녹색 광 */
-
-            
+            --shadow-glow: 0 0 40px -10px rgba(16, 185, 129, 0.3);
         }
 
         body { 
@@ -38,15 +36,14 @@
             color: var(--primary); 
             background-color: var(--bg-white);
             line-height: 1.6;
-            letter-spacing: -0.02em; /* 텍스트를 단정하게 모아줌 */
+            letter-spacing: -0.02em; 
             overflow-x: hidden; 
         }
         
-        /* 타이포그래피 정돈 */
         h1, h2, h3, h4, h5, h6 { font-weight: 700; letter-spacing: -0.03em; margin-bottom: 0.75rem; color: var(--primary); }
         p { color: var(--secondary); font-weight: 400; font-size: 1.05rem; }
         
-        /* 네비게이션바 (Glassmorphism) */
+        /* 네비게이션바 */
         .navbar { 
             background: rgba(255, 255, 255, 0.8); 
             backdrop-filter: blur(12px);
@@ -58,10 +55,9 @@
         .nav-link { font-weight: 500; color: var(--secondary); margin: 0 6px; font-size: 0.95rem; transition: 0.2s; }
         .nav-link:hover { color: var(--primary); }
 
-        /* 히어로 섹션 (Clean & Spacious) */
+        /* 히어로 섹션 */
         .hero-section {
             padding: 180px 0 120px;
-            /* 은은한 오로라 그라데이션 배경 */
             background: radial-gradient(circle at 50% -20%, #ecfdf5 0%, #ffffff 60%);
             position: relative;
         }
@@ -70,7 +66,6 @@
             line-height: 1.15; 
             margin-bottom: 1.5rem; 
         }
-        /* 반응형 폰트 사이즈 조절 */
         @media (max-width: 768px) { .hero-title { font-size: 2.5rem; } }
 
         .hero-title span { 
@@ -79,7 +74,7 @@
             -webkit-text-fill-color: transparent; 
         }
         
-        /* 버튼 스타일 (Pill Shape) */
+        /* 버튼 스타일 */
         .btn-custom { padding: 14px 32px; border-radius: var(--radius-pill); font-weight: 600; transition: all 0.3s ease; }
         .btn-primary-c { 
             background: var(--primary); color: white; border: 1px solid var(--primary); 
@@ -106,7 +101,7 @@
         .mockup-frame {
             border-radius: var(--radius-md); 
             border: 1px solid rgba(0,0,0,0.08);
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15); /* 부드럽고 깊은 그림자 */
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
             overflow: hidden; background: white;
             transition: transform 0.5s ease;
         }
@@ -117,11 +112,9 @@
         .dot:nth-child(2) { background-color: #f59e0b; }
         .dot:nth-child(3) { background-color: #10b981; }
 
-        /* 체크리스트 스타일 */
         .check-list li { margin-bottom: 12px; font-weight: 500; color: var(--primary); display: flex; align-items: flex-start; }
         .check-list i { color: var(--accent); margin-right: 12px; font-size: 1.1rem; flex-shrink: 0; margin-top: 3px; }
 
-        /* 루틴 카드 (Clean Cards) */
         .routine-card {
             background: white; border: 1px solid #f1f5f9; border-radius: var(--radius-lg); padding: 3rem 2rem; height: 100%;
             box-shadow: var(--shadow-sm); transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
@@ -132,21 +125,17 @@
             font-size: 1.5rem; margin-bottom: 1.5rem;
         }
 
-        /* 슬라이드 섹션 (Dark Theme Container) */
         .slide-frame {
-            background: #1e293b; padding: 12px; border-radius: 20px; /* 맥북 느낌의 둥근 모서리 */
+            background: #1e293b; padding: 12px; border-radius: 20px; 
             box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.25);
             position: relative;
         }
-        /* 카메라 홀 느낌 */
         .slide-frame::before {
             content: ''; position: absolute; top: 8px; left: 50%; transform: translateX(-50%);
             width: 60px; height: 6px; background: rgba(255,255,255,0.1); border-radius: 10px; z-index: 10;
         }
 
-        /* 다운로드 섹션 (다크 모드, 깔끔하게) */
         .download-bg { background-color: #0f172a; position: relative; overflow: hidden; }
-        /* 배경에 은은한 빛 효과 */
         .download-bg::before {
             content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
             background: radial-gradient(circle at 100% 0%, #1e293b 0%, transparent 50%), radial-gradient(circle at 0% 100%, #064e3b 0%, transparent 50%);
@@ -159,7 +148,6 @@
             backdrop-filter: blur(10px);
         }
         
-        /* 자료실 카드 */
         .doc-card {
             background: white; border: 1px solid #e2e8f0; border-radius: var(--radius-md); padding: 2rem;
             transition: all 0.3s; display: block; text-decoration: none; height: 100%;
@@ -169,28 +157,26 @@
         }
         .doc-icon { width: 48px; height: 48px; background: #ecfdf5; color: var(--accent); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; margin-bottom: 1rem; }
 
-        /* 문의하기 버튼 (상단) */
         .btn-nav-contact {
             background-color: #f1f5f9; color: var(--primary); border: none; font-size: 0.9rem;
         }
         .btn-nav-contact:hover { background-color: #e2e8f0; color: var(--primary); }
 
-        /* 스크롤바 커스텀 */
         ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-track { background: #f1f5f9; }
         ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
         ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
-        /* [수정] 슬라이드 화살표 색상 변경 (흰색 -> 진한 회색) */
+        
         .carousel-control-prev-icon {
             background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23333333'%3e%3cpath d='M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z'/%3e%3c/svg%3e") !important;
         }
         .carousel-control-next-icon {
             background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23333333'%3e%3cpath d='M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e") !important;
         }
-        /* 옵션: 화살표 영역에 마우스 올렸을 때 배경 반투명하게 하기 */
         .carousel-control-prev:hover, .carousel-control-next:hover {
             background-color: rgba(0, 0, 0, 0.1);
             border-radius: var(--radius-md);
+        }
     </style>
 </head>
 <body>
@@ -226,8 +212,8 @@
         <div class="container">
             <div data-aos="fade-up" data-aos-duration="1000">
                 <div class="d-inline-flex align-items-center gap-2 px-3 py-1 rounded-pill bg-white border border-secondary-subtle mb-4 shadow-sm">
-                    <span class="badge bg-success rounded-pill">Update</span>
-                    <span class="text-secondary small fw-medium">v1.1 새로운 기능 출시</span>
+                    <span class="badge bg-success rounded-pill">v1.2 Update</span>
+                    <span class="text-secondary small fw-medium">NEIS 연동 & AI 모델 업그레이드</span>
                 </div>
                 <h1 class="hero-title">
                     선생님의 소중한 시간,<br>
@@ -239,7 +225,7 @@
                 </p>
                 <div class="d-flex flex-column flex-sm-row gap-3 justify-content-center mb-5">
                     <a href="#download" class="btn btn-custom btn-primary-c">
-                        <i class="bi bi-windows me-2"></i> 무료 다운로드 (Win)
+                        <i class="bi bi-windows me-2"></i> 최신버전 다운로드 (Win)
                     </a>
                     <a href="#preview" class="btn btn-custom btn-outline-c">
                         <i class="bi bi-play-circle me-2"></i> 1분 미리보기
@@ -271,16 +257,16 @@
                         <div class="mb-4 text-primary bg-primary bg-opacity-10 d-inline-flex p-3 rounded-4">
                             <i class="bi bi-layers fs-3"></i>
                         </div>
-                        <h3>1+N 멀티모달 분석</h3>
+                        <h3>1+N 멀티모달 분석 (AI Upgraded)</h3>
                         <p>
-                            학생의 텍스트 기록뿐만 아니라, PDF 보고서, 손글씨 활동지 사진까지.
-                            Kibu 작업흐름에 의해 Chatgpt, Gemini 모델이 자료를 정밀 분석하여
-                            <strong>"학생의 성장이 드러나는 지점"</strong>을 찾아냅니다.
+                            업그레이드된 최신 <strong>Gemini 1.5 & GPT-4o</strong> 모델이 탑재되었습니다.
+                            학생의 텍스트 기록, PDF 보고서, 손글씨 활동지 사진을 더 정밀하게 분석하여
+                            <strong>"학생의 성장이 드러나는 지점"</strong>을 놓치지 않고 찾아냅니다.
                         </p>
                         <ul class="list-unstyled check-list mt-4">
-                            <li><i class="bi bi-check-circle-fill"></i> 손글씨 활동지, 스캔된 PDF 인식(Gemini 모델 추천)</li>
-                            <li><i class="bi bi-check-circle-fill"></i> docx, Image, PDF 분석</li>
-                            <li><i class="bi bi-check-circle-fill"></i> 자료 종합 분석 및 요약</li>
+                            <li><i class="bi bi-check-circle-fill"></i> 최신 모델 적용으로 문해력 및 인식률 대폭 향상</li>
+                            <li><i class="bi bi-check-circle-fill"></i> 손글씨 활동지, 스캔된 PDF 정밀 인식</li>
+                            <li><i class="bi bi-check-circle-fill"></i> 여러 자료의 맥락을 연결하는 종합 분석</li>
                         </ul>
                     </div>
                 </div>
@@ -295,6 +281,33 @@
             <div class="row align-items-center feature-item">
                 <div class="col-lg-6" data-aos="fade-right">
                     <div class="pe-lg-5">
+                        <div class="mb-4 text-success bg-success bg-opacity-10 d-inline-flex p-3 rounded-4">
+                            <i class="bi bi-file-earmark-spreadsheet fs-3"></i>
+                        </div>
+                        <h3>NEIS 교과출석부 원클릭 연동</h3>
+                        <p>
+                            번거로운 엑셀 가공 작업은 이제 그만.<br>
+                            나이스(NEIS)에서 다운로드한 <strong>[교과출석부 엑셀 파일]</strong>을 그대로 업로드하세요.
+                            학번, 이름, 기초 데이터가 자동으로 세팅되어 즉시 기록을 시작할 수 있습니다.
+                        </p>
+                        <ul class="list-unstyled check-list mt-4">
+                            <li><i class="bi bi-check-circle-fill"></i> 나이스 양식 자동 인식 및 파싱</li>
+                            <li><i class="bi bi-check-circle-fill"></i> 반별/학생별 명렬표 자동 생성</li>
+                            <li><i class="bi bi-check-circle-fill"></i> 동명이인, 전출입 학생 완벽 처리</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <div class="mockup-frame">
+                        <div class="mockup-header"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
+                        <img src="img/neis_ui.png" class="w-100 d-block" alt="NEIS 연동 화면">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row align-items-center feature-item">
+                <div class="col-lg-6 order-lg-2" data-aos="fade-left">
+                    <div class="ps-lg-5">
                         <div class="mb-4 text-warning bg-warning bg-opacity-10 d-inline-flex p-3 rounded-4">
                             <i class="bi bi-shield-check fs-3"></i>
                         </div>
@@ -310,7 +323,7 @@
                         </ul>
                     </div>
                 </div>
-                <div class="col-lg-6" data-aos="fade-left">
+                <div class="col-lg-6 order-lg-1" data-aos="fade-right">
                     <div class="mockup-frame">
                         <div class="mockup-header"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
                         <img src="img/settings_ui.png" class="w-100 d-block" alt="규정 검증 설정">
@@ -319,8 +332,8 @@
             </div>
             
             <div class="row align-items-center feature-item mb-0">
-                <div class="col-lg-6 order-lg-2" data-aos="fade-left">
-                    <div class="ps-lg-5">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <div class="pe-lg-5">
                         <div class="mb-4 text-danger bg-danger bg-opacity-10 d-inline-flex p-3 rounded-4">
                             <i class="bi bi-sliders fs-3"></i>
                         </div>
@@ -332,7 +345,7 @@
                         </p>
                     </div>
                 </div>
-                <div class="col-lg-6 order-lg-1" data-aos="fade-right">
+                <div class="col-lg-6" data-aos="fade-left">
                     <div class="mockup-frame">
                         <div class="mockup-header"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
                         <img src="img/batch_ui.png" class="w-100 d-block" alt="프롬프트 설정 기능">
@@ -474,13 +487,17 @@
                 <div class="col-lg-8" data-aos="fade-up">
                     <div class="download-box text-center mb-5">
                         <div class="d-inline-flex align-items-center gap-2 bg-white bg-opacity-10 px-3 py-1 rounded-pill mb-4 border border-white border-opacity-10">
-                            <span class="badge bg-primary">New</span>
-                            <span class="small text-white">2025.11.25 Updated</span>
+                            <span class="badge bg-success">Latest</span>
+                            <span class="small text-white">2025.12.29 Updated (v1.2)</span>
                         </div>
                         
-                        <div class="d-grid gap-3 d-sm-flex justify-content-center">
-                            <a href="https://github.com/KibuAI/Kibu-site/releases/download/v1.1/Kibu1.1.zip" class="btn btn-primary-c btn-lg px-5">
-                                <i class="bi bi-download me-2"></i> Kibu v1.1 다운로드
+                        <div class="d-grid gap-3 d-sm-flex justify-content-center flex-column align-items-center">
+                            <a href="https://github.com/KibuAI/Kibu-site/releases/download/v1.2/Kibu1.2.zip" class="btn btn-primary-c btn-lg px-5 w-100" style="max-width: 350px;">
+                                <i class="bi bi-download me-2"></i> Kibu v1.2 다운로드
+                            </a>
+                            
+                            <a href="https://github.com/KibuAI/Kibu-site/releases/download/v1.1/Kibu1.1.zip" class="text-white-50 small text-decoration-underline mt-2">
+                                이전 버전(v1.1) 다운로드
                             </a>
                         </div>
                         
@@ -532,7 +549,3 @@
     </script>
 </body>
 </html>
-
-
-
-
