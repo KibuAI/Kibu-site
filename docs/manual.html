@@ -319,22 +319,26 @@
                     <!-- 10. 고급 사용자 팁 -->
                     <section id="section-10" class="content-section">
                         <h2>10. 고급 사용자 팁 (Advanced)</h2>
-                        <p class="mb-4">컴퓨터 및 데이터 구조에 익숙한 고급 사용자들을 위한 커스텀 가이드입니다.</p>
+                        <p class="mb-4">압축을 풀었을 때의 폴더 구조와 프로그램을 좀 더 세밀하게 다루고자 하는 분들을 위한 KIBU 활용 팁입니다.</p>
                         
-                        <h3>1. 포터블 모드 (Portable Mode) 활용</h3>
-                        <p>기본적으로 KIBU는 사용자 PC의 <code>%AppData%\KibuAI</code> 폴더에 데이터를 저장합니다. 만약 프로그램을 USB 메모리나 클라우드 폴더에 담아 여러 PC에서 동일하게 실행하고 싶다면, KIBU 실행 파일이 있는 폴더에 <code>portable.mode</code> 라는 빈 확장자 없는 파일을 하나 생성하세요.<br>이후부터는 데이터와 설정이 실행 폴더 내부의 <code>KibuData</code> 폴더에만 저장되는 '포터블 모드'로 작동합니다.</p>
+                        <h3>1. 완벽한 포터블 구조 (USB 활용 및 전체 백업)</h3>
+                        <p>다운로드 하신 KIBU 폴더를 보시면 <code>portable.mode</code>라는 파일이 있습니다. 이 파일로 인해 KIBU는 <strong>기본적으로 완벽한 포터블(Portable) 모드</strong>로 동작합니다.<br>
+                        윈도우 시스템 레지스트리나 보이지 않는 숨김 폴더(AppData)를 건드리지 않으며, <strong>모든 데이터와 설정은 오직 <code>KibuData</code> 폴더 안에만 저장</strong>됩니다. <br>
+                        퇴근하실 때 KIBU 폴더 전체를 USB나 클라우드에 통째로 복사해서 가져가시면, 집 컴퓨터에서도 학교와 똑같은 환경(학생 목록, 생성된 초안 등)으로 곧바로 이어서 작업하실 수 있습니다.</p>
                         
-                        <h3>2. 설정 파일 (JSON) 직접 제어</h3>
-                        <p>KIBU의 AI 설정과 규칙들은 <code>appsettings.json</code> 및 설정 관련 JSON 파일로 관리됩니다. 텍스트 에디터를 이용해 직접 AI 모델의 <code>Temperature</code>, <code>MaxTokens</code> 값을 세밀하게 조절하여 더욱 엄격하거나 창의적인 글쓰기 모드로 커스텀할 수 있습니다.</p>
+                        <h3>2. Kibu.db (학생 데이터) 파일 개별 백업</h3>
+                        <p>프로그램을 한 번이라도 실행하면 <code>KibuData</code> 폴더 내에 <code>Kibu.db</code>(데이터베이스)와 <code>settings.json</code> 파일이 생성됩니다.<br>
+                        프로젝트를 학기나 연도 단위로 영구 보관하고 싶다면 KIBU를 완전히 종료한 후 이 <code>Kibu.db</code> 파일만 이름을 바꿔서(예: 2026_1학기_Kibu.db) 안전한 곳에 백업하세요. 나중에 파일명을 다시 돌려놓고 덮어쓰기만 하면 과거의 모든 작업 기록이 완벽히 복원됩니다.</p>
+                        
+                        <h3>3. 기본 프롬프트(Defaults) 직접 세팅하여 배포하기</h3>
+                        <p>KIBU 폴더 안의 <code>Defaults</code> 폴더에는 <code>Kibu_DefaultPrompts.json</code> 파일이 있습니다.<br>
+                        이 파일에는 초기 구동 시 제공되는 과목별 기본 프롬프트 템플릿들이 들어있습니다. 만약 동학년 교사나 같은 교과 선생님들께 KIBU를 공유할 계획이시라면, 이 JSON 파일을 메모장으로 열어 <strong>우리 학교/우리 과목 기준에 맞는 기본 프롬프트 내용으로 미리 수정한 뒤 폴더째로 압축해서 공유</strong>해 보세요. 동료 선생님들이 프롬프트 작성을 고민할 필요가 없어 큰 호응을 얻으실 수 있습니다.</p>
                         <div class="alert-info-custom" style="background-color: #fffbeb; border-color: #fde68a; color: #92400e;">
-                            <i class="bi bi-exclamation-triangle-fill text-warning me-2"></i> <strong>주의:</strong> JSON 형식이 깨지거나 잘못된 키 값을 입력하면 KIBU 로딩 중 예외가 발생할 수 있으니 수정 전 반드시 파일을 백업해 두세요.
+                            <i class="bi bi-exclamation-triangle-fill text-warning me-2"></i> <strong>주의:</strong> JSON 형식이 깨지거나 괄호가 누락되면 프로그램 로딩 시 오류가 발생할 수 있으니 수정 전 반드시 원본 파일을 백업해 두세요.
                         </div>
 
-                        <h3>3. Kibu.db 데이터베이스 백업 및 이관</h3>
-                        <p>모든 학생 명단, 수집된 활동 자료, 생성된 초안 데이터는 SQLite 기반인 <code>Kibu.db</code> 파일 하나에 통합 저장됩니다. 프로젝트를 학기/년도별로 백업하고 싶다면, KIBU를 완전히 종료한 후 해당 <code>.db</code> 파일만 안전한 곳에 복사하세요. 다른 PC의 같은 경로에 덮어쓰면 이전 작업 내역을 완벽히 복원할 수 있습니다.</p>
-                        
-                        <h3>4. 외부 플러그인(Pdfium) 업데이트</h3>
-                        <p>PDF 스캔 문서 분석을 위해 내장된 <code>pdfium.dll</code> 엔진을 기반으로 작동합니다. 특정 렌더링 오류가 발생하는 경우 개발자의 안내에 따라 해당 DLL 파일만 최신 버전으로 덮어쓰는 방식으로 코어 엔진만 즉시 업데이트할 수 있습니다.</p>
+                        <h3>4. 외부 플러그인 (Pdfium)</h3>
+                        <p>폴더에 함께 있는 <code>pdfium.dll</code> 파일은 스캔 문서(PDF) 분석을 위한 핵심 엔진입니다. 이 파일이 삭제되거나 격리되면 스캔본 분석 기능이 작동하지 않으니 임의로 삭제하지 않도록 주의하세요.</p>
                     </section>
 
                 </div>
