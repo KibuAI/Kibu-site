@@ -170,8 +170,53 @@
                             <img src="../img/21_학생목록_불러오기.png" alt="학생 목록 불러오기" onerror="this.src='https://via.placeholder.com/800x400?text=21_%ED%95%99%EC%83%9D%EB%AA%A9%EB%A1%9D_%EB%B6%88%EB%9F%AC%EC%98%A4%EA%B8%B0.png'">
                         </div>
 
-                        <h3>학생별 자료 등록 및 자동 배분</h3>
-                        <p>설문 응답 엑셀 파일이나, 여러 학생의 활동지가 스캔된 대용량 PDF를 파일 업로드 영역에 드래그 앤 드롭 하세요.</p>
+                        <h3>자료 유형별 업로드 및 자동 배분 방식</h3>
+                        <p>설문 응답 엑셀 파일이나, 여러 학생의 활동지가 스캔된 대용량 PDF를 파일 업로드 영역에 드래그 앤 드롭 하세요. KIBU는 평소 사용하시던 다양한 형태의 파일을 그대로 인식하여 자동으로 학생별 보관함에 분류합니다.</p>
+                        
+                        <div class="row g-3 mb-4 mt-1">
+                            <div class="col-md-4">
+                                <div class="card h-100 border-0 shadow-sm" style="background: #f8fafc;">
+                                    <div class="card-body">
+                                        <div class="d-flex align-items-center mb-3">
+                                            <i class="bi bi-file-earmark-excel-fill fs-2 text-success me-3"></i>
+                                            <div>
+                                                <h5 class="card-title mb-0 fw-bold fs-6">엑셀 파일</h5>
+                                                <small class="text-muted">구글/네이버 폼 응답</small>
+                                            </div>
+                                        </div>
+                                        <p class="card-text small text-secondary"><strong>작동 방식:</strong> 표의 최상단에서 '학번', '이름' 열(Column)을 자동으로 감지하여 각 행(Row)의 긴 텍스트 응답을 해당 학생에게 즉시 분배합니다.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="card h-100 border-0 shadow-sm" style="background: #f8fafc;">
+                                    <div class="card-body">
+                                        <div class="d-flex align-items-center mb-3">
+                                            <i class="bi bi-file-earmark-word-fill fs-2 text-primary me-3"></i>
+                                            <div>
+                                                <h5 class="card-title mb-0 fw-bold fs-6">텍스트/워드 문서</h5>
+                                                <small class="text-muted">학습 일지, 독후감</small>
+                                            </div>
+                                        </div>
+                                        <p class="card-text small text-secondary"><strong>작동 방식:</strong> 문서 본문 속에 적혀있는 '학번'이나 '이름' 관련 패턴을 AI가 탐색하여 파일 전체의 내용을 알맞은 학생에게 통째로 매핑합니다.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="card h-100 border-0 shadow-sm" style="background: #f8fafc;">
+                                    <div class="card-body">
+                                        <div class="d-flex align-items-center mb-3">
+                                            <i class="bi bi-file-earmark-pdf-fill fs-2 text-danger me-3"></i>
+                                            <div>
+                                                <h5 class="card-title mb-0 fw-bold fs-6">스캔 PDF/이미지</h5>
+                                                <small class="text-muted">종이 활동지, 시험지</small>
+                                            </div>
+                                        </div>
+                                        <p class="card-text small text-secondary"><strong>작동 방식:</strong> OCR(문자인식)을 거쳐 페이지 상단의 손글씨 학번/이름을 분석합니다. 자동 인식이 불가능할 땐 수동 배정 기능으로 묶어서 배분할 수 있습니다.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         <div class="mockup-frame">
                             <img src="../img/02_자료_드래그앤드롭.png" alt="드래그 앤 드롭" onerror="this.src='https://via.placeholder.com/800x400?text=02_%EC%9E%90%EB%A3%8C_%EB%93%9C%EB%9E%98%EA%B7%B8%EC%95%A4%EB%93%9C%EB%A1%AD.png'">
                         </div>
