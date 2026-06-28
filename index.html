@@ -78,6 +78,9 @@
         /* Download Section */
         .download-bg { background-color: #0f172a; position: relative; overflow: hidden; }
         .download-bg::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(circle at 100% 0%, #1e293b 0%, transparent 50%), radial-gradient(circle at 0% 100%, #064e3b 0%, transparent 50%); opacity: 0.6; pointer-events: none; }
+        
+        /* 이미지 렌더링 최적화 */
+        img { image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges; }
     </style>
 </head>
 <body>
@@ -137,7 +140,7 @@
                     <div class="mockup-header">
                         <div class="dot"></div><div class="dot"></div><div class="dot"></div>
                     </div>
-                    <img src="img/01_메인화면_전체.png" alt="KIBU 메인화면" class="w-100 d-block" onerror="this.src='https://via.placeholder.com/1920x1080?text=01_%EB%A9%94%EC%9D%B8%ED%99%94%EB%A9%B4_%EC%A0%84%EC%B2%B4.png'">
+                    <img src="img/01_메인화면_전체.png" alt="KIBU 메인화면" class="img-fluid d-block mx-auto" onerror="this.src='https://via.placeholder.com/1920x1080?text=01_%EB%A9%94%EC%9D%B8%ED%99%94%EB%A9%B4_%EC%A0%84%EC%B2%B4.png'">
                 </div>
             </div>
         </div>
@@ -242,6 +245,9 @@
                             <a href="downloads/Kibu-v2.zip" class="btn btn-primary-c btn-lg px-5">
                                 <i class="bi bi-download me-2"></i> Windows용 다운로드 (.zip)
                             </a>
+                            <a href="docs/manual.html" class="btn btn-outline-light btn-lg px-4">
+                                <i class="bi bi-book me-2"></i> 사용 설명서 보기
+                            </a>
                         </div>
                         
                         <div class="text-white-50 small">
@@ -253,6 +259,11 @@
             </div>
             
             <div class="text-center mt-5 pt-4 border-top border-secondary border-opacity-25">
+                <div class="mb-4">
+                    <a href="https://forms.gle/aSLtc9yFmRZE3tGV9" target="_blank" class="text-white text-decoration-none">
+                        <i class="bi bi-headset me-1"></i> 문의하기 및 의견 남기기
+                    </a>
+                </div>
                 <p class="text-white-50 small mb-1">&copy; 2026 KIBU AI Assistant. All rights reserved.</p>
                 <p class="text-white-50 small">Developed by Teacher for Teachers.</p>
             </div>
