@@ -135,9 +135,17 @@
                             <i class="bi bi-exclamation-triangle-fill text-danger me-2"></i><strong>무료 티어(Free Tier) 사용 주의사항:</strong> 발급받은 API가 무료 계정 상태일 경우, 제공 업체의 <strong>분당 요청 횟수(Rate Limit) 제한</strong>에 걸려 KIBU의 다중 학생/다중 자료 동시 분석이 정상적으로 완료되지 않고 오류가 발생할 수 있습니다. 원활한 대량 작업과 빠른 속도를 위해서는 결제 수단을 연동(Pay-as-you-go)하여 제한을 해제하신 후 사용하시는 것을 권장합니다.
                         </div>
                         
-                        <p class="text-secondary mt-3" style="font-size: 0.95rem;">
-                            <i class="bi bi-info-circle-fill me-1 text-primary"></i> <strong>참고:</strong> KIBU의 자동 생성 프롬프트 및 처리 프로세스는 <strong>GPT-5.5 모델의 기본 설정</strong>에 가장 최적화되어 있습니다.
-                        </p>
+                        <div class="alert-info-custom" style="margin-top: 1rem;">
+                            <i class="bi bi-cpu-fill me-2"></i><strong>기본 AI 모델 구성:</strong> KIBU는 설치 직후 별도 설정 없이도 각 단계에 최적화된 모델이 자동으로 지정됩니다. 자동 생성 프롬프트와 처리 프로세스도 이 기본 구성에 맞춰 최적화되어 있습니다.
+                            <ul class="mb-2 mt-2">
+                                <li><strong>자료 판독(스캔본·이미지)·초안 생성:</strong> <code>GPT-5.4</code> — 손글씨 지도/보고서 판독과 근거 기반 서술에 필요한 높은 성능</li>
+                                <li><strong>문체 정제·규정 검증:</strong> <code>GPT-5.4-mini</code> — 텍스트 정리에 특화된 경량 모델로 품질은 유지하면서 비용을 절감</li>
+                            </ul>
+                            <strong>[더보기(⋮) &rarr; 설정 &rarr; AI 모델]</strong>에서 단계별 모델을 언제든 자유롭게 변경할 수 있습니다.
+                        </div>
+                        <div class="alert-info-custom" style="background-color: #fffbeb; border-color: #fde68a; color: #92400e; margin-top: 0.8rem;">
+                            <i class="bi bi-coin me-2"></i><strong>예상 비용 안내:</strong> 기본 모델 구성 기준, 학생 1명의 초안을 한 번 생성할 때 첨부한 자료의 양과 스캔본 여부에 따라 <strong>약 200~500원</strong> 정도의 API 사용료가 발생합니다. 자료가 적으면 더 저렴하고, 스캔본이 많거나 분량이 큰 경우 비용이 다소 올라갑니다.
+                        </div>
                         
                         <div class="mockup-frame">
                             <div class="mockup-header"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
