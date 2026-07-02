@@ -372,6 +372,21 @@
 
                             <div class="accordion-item">
                                 <h3 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqQ9" aria-expanded="false" aria-controls="faqQ9">
+                                        <i class="bi bi-shield-lock-fill text-success me-2"></i> 개인정보가 정말 100% 로컬로만 처리되나요?
+                                    </button>
+                                </h3>
+                                <div id="faqQ9" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                    <div class="accordion-body">
+                                        <strong>저장은 100% 로컬입니다.</strong> KIBU는 자체 서버를 운영하지 않으며, 학생 자료와 생성된 초안은 오직 선생님의 PC(로컬 SQLite DB)에만 저장됩니다.<br><br>
+                                        다만 <strong>초안 생성 자체는 AI 처리를 위해 선생님이 등록한 개인 OpenAI/Gemini 키를 통해 해당 회사 서버로 전송</strong>됩니다(이는 모든 생성형 AI 도구의 공통된 구조입니다). 이 과정에서 이름·전화번호·이메일·학교명 등 주요 개인정보는 전송 전 자동으로 마스킹 처리됩니다.<br><br>
+                                        스캔본 이미지(손글씨 원본) 자체는 기본적으로 외부에 전송되지 않고 로컬 OCR 텍스트만 사용되며, <strong>[설정 → 외부 이미지 분석]을 직접 켠 경우에만</strong> 정밀 판독을 위해 이미지가 AI사로 전송됩니다.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="accordion-item">
+                                <h3 class="accordion-header">
                                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqQ8" aria-expanded="false" aria-controls="faqQ8">
                                         <i class="bi bi-google text-success me-2"></i> 제미나이(Gemini) 키만 있어도 사용할 수 있나요?
                                     </button>
