@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>개인정보 처리 및 AI 이용 안내 | KIBU AI</title>
+
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <meta property="og:title" content="KIBU AI | 개인정보 처리 및 AI 이용 안내">
+    <meta property="og:description" content="KIBU가 학생 개인정보와 AI 처리를 어떻게 다루는지, 무엇이 어디로 전송되는지 투명하게 안내합니다.">
+    <meta property="og:image" content="https://kibuai.github.io/Kibu-site/img/01_메인화면_전체.png">
+    <meta property="og:url" content="https://kibuai.github.io/Kibu-site/privacy.html">
+
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/static/pretendard.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/site.css">
+
+    <style>
+        .privacy-body { max-width: 880px; margin: 0 auto; }
+        .privacy-body h2 { font-size: 1.6rem; margin-top: 3rem; margin-bottom: 1.2rem; border-left: 4px solid var(--accent); padding-left: 14px; }
+        .privacy-body h3 { font-size: 1.15rem; margin-top: 1.8rem; margin-bottom: 0.8rem; }
+        .privacy-body p, .privacy-body li { font-size: 1rem; color: var(--secondary); }
+        .privacy-body ul { padding-left: 1.1rem; }
+        .privacy-body li { margin-bottom: 0.5rem; }
+        .data-table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: 0.95rem; }
+        .data-table th, .data-table td { border: 1px solid var(--border); padding: 12px 14px; text-align: left; vertical-align: top; }
+        .data-table th { background: var(--bg-light); color: var(--primary); font-weight: 700; }
+        .data-table td { color: var(--secondary); }
+        .pill-tag { display: inline-block; font-size: 0.72rem; font-weight: 700; padding: 3px 10px; border-radius: 999px; }
+        .pill-local { background: var(--tint); color: var(--accent-hover); }
+        .pill-ext { background: #fef2f2; color: #b91c1c; }
+        .pill-opt { background: #fffbeb; color: #b45309; }
+        .summary-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin: 2rem 0; }
+        @media (max-width: 640px) { .summary-grid { grid-template-columns: 1fr; } }
+        .summary-card { background: #fff; border: 1px solid var(--border); border-radius: var(--r-lg); padding: 22px; }
+        .summary-card i { color: var(--accent); font-size: 1.4rem; }
+        .summary-card h4 { font-size: 1.05rem; margin: 10px 0 6px; }
+        .summary-card p { font-size: 0.92rem; margin-bottom: 0; }
+        .last-updated { color: var(--muted); font-size: 0.88rem; }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+                <span class="brand-mark"><i class="bi bi-robot"></i></span> KIBU AI
+            </a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="index.html#core-values">핵심 가치</a></li>
+                    <li class="nav-item"><a class="nav-link" href="features.html">기능 상세</a></li>
+                    <li class="nav-item"><a class="nav-link" href="docs/manual.html">사용 설명서</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="privacy.html">개인정보·보안</a></li>
+                    <li class="nav-item ms-lg-3">
+                        <a class="btn btn-primary-c rounded-pill px-4 fw-bold" href="index.html#download">다운로드</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <div class="page-header">
+        <div class="container" data-aos="fade-up">
+            <span class="section-tag">Privacy &amp; Security</span>
+            <h1 class="page-title">개인정보 처리 및 AI 이용 안내</h1>
+            <p class="text-secondary fs-5">KIBU가 학생 자료를 어떻게 다루고, 무엇이 어디로 전송되는지 투명하게 안내합니다.</p>
+            <p class="last-updated mt-2"><i class="bi bi-clock-history me-1"></i> 최종 업데이트: 2026.07.04</p>
+        </div>
+    </div>
+
+    <section class="section-padding bg-white">
+        <div class="container">
+            <div class="privacy-body" data-aos="fade-up">
+
+                <!-- 핵심 요약 -->
+                <div class="alert-info-custom">
+                    <strong><i class="bi bi-info-circle-fill me-1"></i> 한눈에 보기</strong><br>
+                    KIBU는 선생님의 PC에서 구동되는 <strong>설치형 보조도구</strong>입니다. 학생 자료와 생성된 초안은 KIBU 서버가 아닌 <strong>선생님 PC(로컬)에만 저장</strong>됩니다.
+                    다만 초안 생성을 위해 자료의 일부가 선생님이 직접 등록한 <strong>OpenAI / Google(Gemini) API</strong>를 통해 해당 사업자(국외)로 전송됩니다.
+                    개인정보 보호의 최종 책임 주체(개인정보처리자)는 이를 사용하는 <strong>학교·교사</strong>이며, KIBU는 그 처리를 돕는 도구입니다.
+                </div>
+
+                <div class="summary-grid">
+                    <div class="summary-card">
+                        <i class="bi bi-hdd-stack"></i>
+                        <h4>로컬 우선 저장</h4>
+                        <p>학생 자료·초안은 교사 PC의 로컬 데이터베이스에만 저장되며, KIBU 자체 서버로 수집·전송하지 않습니다.</p>
+                    </div>
+                    <div class="summary-card">
+                        <i class="bi bi-globe2"></i>
+                        <h4>AI 처리는 국외 전송</h4>
+                        <p>초안 생성 시 자료 텍스트가 OpenAI(미국)·Google(미국) 등 AI 사업자 서버로 전송·처리됩니다.</p>
+                    </div>
+                    <div class="summary-card">
+                        <i class="bi bi-key"></i>
+                        <h4>내 API 키 · 암호화 보관</h4>
+                        <p>교사 본인의 API 키로만 구동되며, 키는 Windows DPAPI로 암호화되어 로컬에 저장됩니다.</p>
+                    </div>
+                    <div class="summary-card">
+                        <i class="bi bi-image"></i>
+                        <h4>이미지 전송은 선택(기본 꺼짐)</h4>
+                        <p>스캔본 원본 이미지는 기본적으로 전송되지 않으며, 설정에서 직접 켠 경우에만 정밀 판독용으로 전송됩니다.</p>
+                    </div>
+                </div>
+
+                <!-- 1. 데이터 흐름 -->
+                <h2>1. 데이터가 어디로 가나요?</h2>
+                <p>KIBU에서 다루는 데이터는 크게 <strong>로컬에만 머무는 것</strong>과 <strong>AI 처리를 위해 외부로 전송되는 것</strong>으로 나뉩니다.</p>
+                <table class="data-table">
+                    <thead>
+                        <tr><th>데이터</th><th>처리 위치</th><th>설명</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>학생 자료 원본·명렬표·생성된 초안</td>
+                            <td><span class="pill-tag pill-local">로컬</span></td>
+                            <td>교사 PC의 로컬 DB(SQLite)에 저장. KIBU 서버로 전송되지 않습니다.</td>
+                        </tr>
+                        <tr>
+                            <td>API 키(OpenAI / Gemini)</td>
+                            <td><span class="pill-tag pill-local">로컬(암호화)</span></td>
+                            <td>Windows DPAPI로 암호화하여 로컬에만 저장. 해당 키는 각 AI 사업자 인증에만 사용됩니다.</td>
+                        </tr>
+                        <tr>
+                            <td>초안 생성용 텍스트(활동 내용, 평가 맥락 등)</td>
+                            <td><span class="pill-tag pill-ext">국외 전송</span></td>
+                            <td>초안 생성을 위해 OpenAI / Google API로 전송·처리됩니다.</td>
+                        </tr>
+                        <tr>
+                            <td>스캔본 원본 이미지(손글씨 등)</td>
+                            <td><span class="pill-tag pill-opt">선택(기본 꺼짐)</span></td>
+                            <td>기본은 로컬 OCR 텍스트만 사용. [설정 → 외부 이미지 분석]을 켠 경우에만 이미지가 전송됩니다.</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <!-- 2. 국외 이전 -->
+                <h2>2. 국외 이전 안내</h2>
+                <p>KIBU는 자체 AI 모델을 두지 않고, 선생님이 등록한 API 키를 통해 아래 사업자의 생성형 AI 서비스를 이용합니다. 초안 생성 과정에서 자료의 일부가 이 사업자의 서버(대부분 국외)로 전송됩니다.</p>
+                <ul>
+                    <li><strong>OpenAI, L.L.C.</strong> — 이전 국가: 미국 등 / 이전 항목: 초안 생성에 사용되는 텍스트(및 이미지 옵션 활성화 시 이미지) / 이용·보유: OpenAI의 API 데이터 처리 정책에 따름</li>
+                    <li><strong>Google LLC (Gemini API)</strong> — 이전 국가: 미국 등 / 이전 항목: 동일 / 이용·보유: Google의 데이터 처리 정책에 따름</li>
+                </ul>
+                <div class="alert-info-custom">
+                    <strong><i class="bi bi-exclamation-triangle-fill me-1"></i> Gemini 무료 등급 유의</strong><br>
+                    Google Gemini의 <strong>무료(Free) API 등급</strong>은 입력 데이터가 서비스 품질 개선(모델 학습 등)에 활용될 수 있습니다.
+                    학생 개인정보가 포함될 수 있는 업무에는 <strong>유료(paid) 등급 사용 또는 데이터 미학습 정책이 적용되는 키</strong> 사용을 권장합니다. OpenAI API는 기본적으로 입력을 모델 학습에 사용하지 않습니다.
+                </div>
+
+                <!-- 3. 개인정보 최소화 -->
+                <h2>3. 개인정보 최소화와 마스킹</h2>
+                <p>KIBU는 외부로 전송되는 개인정보를 줄이기 위해 다음을 적용합니다.</p>
+                <ul>
+                    <li>이름·전화번호·이메일 등 <strong>직접 식별정보는 전송 전 마스킹 규칙</strong>으로 최소화합니다.</li>
+                    <li>한 학생의 초안을 만들 때 <strong>다른 학생의 이름</strong>이 섞여 들어가지 않도록 분리·치환합니다.</li>
+                    <li>스캔본 원본 이미지는 기본적으로 전송하지 않고, <strong>로컬 OCR로 추출한 텍스트</strong>만 사용합니다.</li>
+                </ul>
+                <div class="alert-info-custom">
+                    <i class="bi bi-lightbulb-fill me-1"></i> 다만 활동 내용 <strong>본문 안에 적힌 개인정보</strong>(예: 자기소개서 속 주소·가족관계 등)까지 자동으로 완벽히 제거되지는 않습니다.
+                    업로드 자료에는 <strong>초안 작성에 꼭 필요한 정보만</strong> 남겨 주시길 권장합니다.
+                </div>
+
+                <!-- 4. 저장 및 보안 -->
+                <h2>4. 저장 및 보안</h2>
+                <ul>
+                    <li><strong>로컬 저장:</strong> 모든 학생 자료와 초안은 교사 PC 로컬에 저장됩니다. KIBU는 별도의 수집 서버를 운영하지 않습니다.</li>
+                    <li><strong>키 암호화:</strong> API 키는 Windows DPAPI로 암호화되어 저장되며, 화면·로그에 평문으로 노출되지 않습니다.</li>
+                    <li><strong>PC 보안 책임:</strong> 자료가 로컬에 저장되므로, 공용/공유 PC 사용 시 계정 잠금·디스크 암호화 등 <strong>PC 자체 보안</strong>이 중요합니다.</li>
+                </ul>
+
+                <!-- 5. 처리자 책임 -->
+                <h2>5. 학교·교사(개인정보처리자)의 역할</h2>
+                <p>학생 개인정보를 수집·이용하는 주체는 학교·교사이며, KIBU는 그 업무를 돕는 도구입니다. 안전한 활용을 위해 아래를 권장합니다.</p>
+                <ul>
+                    <li>학교의 개인정보 보호 방침 및 <strong>생성형 AI 활용 지침</strong>을 확인하고 준수해 주세요.</li>
+                    <li>필요 시 학생·보호자에게 <strong>AI 보조도구 이용 사실과 국외 이전</strong>을 안내·동의받는 절차를 검토해 주세요.</li>
+                    <li>민감정보(건강·가족사항 등)는 가능한 한 업로드하지 않거나 사전에 제거해 주세요.</li>
+                    <li>생성된 초안은 <strong>반드시 교사가 검토·수정</strong>한 뒤 사용해 주세요. AI 결과는 초안 제안일 뿐 최종 기록이 아닙니다.</li>
+                </ul>
+
+                <!-- 6. 앱 내 고지 -->
+                <h2>6. 프로그램 내 안내</h2>
+                <p>KIBU는 최초 실행 시 위 내용을 요약한 <strong>개인정보·AI 이용 고지</strong>를 표시하며, 확인 후에만 사용을 시작할 수 있습니다.
+                    또한 자료 업로드 화면과 설정 화면에서 관련 안내와 옵션(외부 이미지 분석 등)을 확인할 수 있습니다.</p>
+
+                <!-- 문의 -->
+                <h2>7. 문의</h2>
+                <p>개인정보 처리나 보안 관련 문의는 아래 채널로 남겨 주세요.</p>
+                <a href="https://forms.gle/X5NkLdBVgjR59bXx5" target="_blank" class="btn btn-custom btn-accent-c">
+                    <i class="bi bi-headset me-2"></i> 문의하기 및 의견 남기기
+                </a>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer text-center">
+        <div class="container">
+            <div class="mb-3">
+                <a href="index.html#download" class="me-3"><i class="bi bi-download me-1"></i> 다운로드</a>
+                <a href="privacy.html" class="me-3"><i class="bi bi-shield-lock me-1"></i> 개인정보·보안</a>
+                <a href="https://forms.gle/X5NkLdBVgjR59bXx5" target="_blank"><i class="bi bi-headset me-1"></i> 문의하기</a>
+            </div>
+            <p class="small mb-1">&copy; 2026 KIBU AI Assistant. All rights reserved.</p>
+            <p class="small mb-0">Developed by Teacher, for Teachers.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script> AOS.init({ once: true, offset: 100, duration: 800, easing: 'ease-out-cubic' }); </script>
+</body>
+</html>
