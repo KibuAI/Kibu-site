@@ -2,4 +2,4 @@
 # 압축을 푼 실행 파일(.exe)·DLL·PDB·기본 자료 폴더 등은 저장소에 커밋하지 않는다.
 *
 !.gitignore
-!Kibu-v2.zip
+!KibuBeta.zip
