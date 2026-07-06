@@ -124,9 +124,12 @@
                         <p>KIBU를 처음 실행하고 API를 연동하여 사용할 준비를 하는 과정입니다.</p>
                         
                         <h3>KIBU 설치 및 실행</h3>
-                        <p>다운로드 받은 압축 파일을 풀고 실행 파일을 더블클릭합니다. 별도의 설치 과정은 필요 없습니다.</p>
+                        <p>다운로드 받은 설치 파일(<code>KibuBeta-win-Setup.exe</code>)을 더블클릭하면 설치가 진행되고 KIBU가 바로 실행됩니다. 바탕화면과 시작 메뉴에 바로가기가 만들어집니다.</p>
                         <div class="alert-info-custom">
-                            <strong>참고:</strong> 최초 실행 시 <code>.NET Desktop Runtime 9.0</code>이 설치되어 있지 않다면 다운로드 안내가 나타납니다.
+                            <strong>자동 업데이트:</strong> 한 번 설치하면 이후 새 버전이 나올 때 KIBU가 시작 시 자동으로 확인해 내려받은 뒤, 재시작 여부를 물어봅니다. 더 이상 홈페이지에서 수동으로 다시 받을 필요가 없습니다.
+                        </div>
+                        <div class="alert-info-custom">
+                            <strong>참고:</strong> 실행에 필요한 <code>.NET Desktop Runtime 9.0</code>은 설치 과정에서 자동으로 확인·설치되므로 별도로 설치할 필요가 없습니다.
                         </div>
 
                         <h3>API 키 준비 및 설정</h3>
@@ -532,21 +535,18 @@
                         <h2>10. 고급 사용자 팁 (Advanced)</h2>
                         <p class="mb-4">압축을 풀었을 때의 폴더 구조와 프로그램을 좀 더 세밀하게 다루고자 하는 분들을 위한 KIBU 활용 팁입니다.</p>
                         
-                        <h3>1. 완벽한 포터블 구조 (USB 활용 및 전체 백업)</h3>
-                        <p>다운로드 하신 KIBU 폴더를 보시면 <code>portable.mode</code>라는 파일이 있습니다. 이 파일로 인해 KIBU는 <strong>기본적으로 완벽한 포터블(Portable) 모드</strong>로 동작합니다.<br>
-                        윈도우 시스템 레지스트리나 보이지 않는 숨김 폴더(AppData)를 건드리지 않으며, <strong>모든 데이터와 설정은 오직 <code>KibuData</code> 폴더 안에만 저장</strong>됩니다. <br>
-                        퇴근하실 때 KIBU 폴더 전체를 USB나 클라우드에 통째로 복사해서 가져가시면, 집 컴퓨터에서도 학교와 똑같은 환경(학생 목록, 생성된 초안 등)으로 곧바로 이어서 작업하실 수 있습니다.</p>
+                        <h3>1. 데이터 저장 위치와 백업</h3>
+                        <p>설치형 KIBU는 학생 목록·설정·생성된 초안 등 <strong>모든 사용자 데이터를 <code>%LocalAppData%\Kibu</code> 폴더에 저장</strong>합니다. (탐색기 주소창에 <code>%LocalAppData%\Kibu</code>를 붙여넣으면 바로 열립니다.)<br>
+                        이 폴더는 앱 프로그램 파일과 분리되어 있어, <strong>자동 업데이트로 앱이 갱신되어도 데이터는 그대로 유지</strong>됩니다.<br>
+                        환경을 통째로 백업하거나 다른 PC로 옮기고 싶다면 이 <code>Kibu</code> 폴더를 복사해 두었다가 같은 위치에 붙여넣으면 됩니다. 다만 학기·연도 단위 보관에는 아래의 <strong>프로젝트 폴더 백업</strong> 방식을 권장합니다.</p>
                         
                         <h3>2. KIBU 프로젝트 폴더 전체 백업하기</h3>
                         <p>KIBU에서 '새 프로젝트'를 만들면 선생님이 지정한 위치에 프로젝트 폴더가 생성되며, 그 내부에 <code>project.kibu</code>(데이터베이스) 파일과 업로드했던 원본 파일, 분석 캐시 데이터들이 모두 저장됩니다.<br>
                         작업 내역을 학기나 연도 단위로 영구 보관하고 싶다면 <strong>이 프로젝트 폴더 전체를 통째로 복사하거나 압축해서 백업</strong>해 두시는 것을 권장합니다. 나중에 KIBU를 실행하고 [프로젝트 열기]에서 해당 폴더의 <code>project.kibu</code>를 선택하기만 하면 과거의 모든 원본 자료와 작업 기록이 완벽히 복원됩니다.</p>
                         
-                        <h3>3. 기본 프롬프트(Defaults) 직접 세팅하여 배포하기</h3>
-                        <p>KIBU 폴더 안의 <code>Defaults</code> 폴더에는 <code>Kibu_DefaultPrompts.json</code> 파일이 있습니다.<br>
-                        이 파일에는 초기 구동 시 제공되는 과목별 기본 프롬프트 템플릿들이 들어있습니다. 만약 동학년 교사나 같은 교과 선생님들께 KIBU를 공유할 계획이시라면, 이 JSON 파일을 메모장으로 열어 <strong>우리 학교/우리 과목 기준에 맞는 기본 프롬프트 내용으로 미리 수정한 뒤 폴더째로 압축해서 공유</strong>해 보세요. 동료 선생님들이 프롬프트 작성을 고민할 필요가 없어 큰 호응을 얻으실 수 있습니다.</p>
-                        <div class="alert-info-custom" style="background-color: #fffbeb; border-color: #fde68a; color: #92400e;">
-                            <i class="bi bi-exclamation-triangle-fill text-warning me-2"></i> <strong>주의:</strong> JSON 형식이 깨지거나 괄호가 누락되면 프로그램 로딩 시 오류가 발생할 수 있으니 수정 전 반드시 원본 파일을 백업해 두세요.
-                        </div>
+                        <h3>3. 기본 프롬프트·규칙 커스터마이즈</h3>
+                        <p>과목·학교 사정에 맞게 프롬프트나 기재 규칙을 바꾸고 싶다면 앱 안의 <strong>프롬프트 관리</strong>와 <strong>규칙 관리</strong> 화면에서 직접 편집·저장하시면 됩니다. 여기서 만든 사용자 프롬프트와 규칙은 <code>%LocalAppData%\Kibu</code>에 저장되어 <strong>자동 업데이트가 되어도 그대로 보존</strong>됩니다.<br>
+                        기본 제공 프롬프트 템플릿은 각 버전의 <code>Defaults\Kibu_DefaultPrompts.json</code>에 포함되어 배포되며, 새 버전이 나오면 기본값만 갱신되고 선생님이 만든 항목은 유지됩니다.</p>
 
                         <h3>4. 외부 플러그인 (Pdfium)</h3>
                         <p>폴더에 함께 있는 <code>pdfium.dll</code> 파일은 스캔 문서(PDF) 분석을 위한 핵심 엔진입니다. 이 파일이 삭제되거나 격리되면 스캔본 분석 기능이 작동하지 않으니 임의로 삭제하지 않도록 주의하세요.</p>
