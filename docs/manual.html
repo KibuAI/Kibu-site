@@ -160,6 +160,9 @@
                             <strong>[더보기(⋮) &rarr; 설정 &rarr; AI 모델]</strong>에서 단계별 모델을 언제든 자유롭게 변경할 수 있습니다. 일반적으로 <strong>더 고급 모델을 사용할수록 학술적이고 정교한 표현이 등장할 확률이 높아집니다.</strong>
                             <div style="margin-top: 0.6rem; padding-top: 0.6rem; border-top: 1px dashed #a7f3d0;">
                                 <i class="bi bi-google me-1"></i><strong>제미나이(Gemini) 사용 시:</strong> 기본 구성은 OpenAI 기준이므로, 제미나이 키만 사용하시려면 <strong>[설정 → 고급 모드]</strong>를 켠 뒤 모든 단계를 제미나이 모델로 직접 지정해야 합니다. (제미나이도 스캔본 이미지 판독을 지원합니다.)
+                                <div style="margin-top: 0.5rem;">
+                                    <i class="bi bi-pencil-square me-1"></i><strong>손글씨·스캔본 판독은 상위 모델 권장:</strong> 제미나이로 손글씨 원본이나 스캔 PDF를 판독할 때는 <strong>Gemini 3.1 Pro (Preview)</strong>처럼 <strong>고급(Pro) 모델</strong>을 사용해야 인식 정확도가 확보됩니다. Flash 등 경량 모델은 빠르고 저렴하지만 흐린 손글씨나 복잡한 표를 잘못 읽을 수 있으므로, <strong>자료 판독 단계만큼은 상위 모델로 지정</strong>하시는 것을 권장합니다.
+                                </div>
                             </div>
                         </div>
                         <div class="alert-info-custom" style="background-color: #fffbeb; border-color: #fde68a; color: #92400e; margin-top: 0.8rem;">
@@ -346,15 +349,43 @@
                         
                         <h3>규칙 관리 (금지어 및 바이트 검증)</h3>
                         <p>학교마다 학교생활기록부에 기재해서는 안 되는 금칙어(예: 외부 대회명, 사설 기관명, 부모 직업 등)나, 과목별로 정해진 바이트 제한이 다를 수 있습니다. <strong>[규칙 관리]</strong> 탭에서 우리 학교만의 금지 단어 목록과 바이트 상한선을 미리 등록해 두세요. 초안을 생성하거나 검토할 때 KIBU가 해당 규칙을 위반한 곳이 없는지 실시간으로 꼼꼼하게 검증하여 경고해 줍니다.</p>
-                        <p>규칙마다 위반 표현을 어떻게 처리할지 아래 세 가지 방식 중에서 선택할 수 있습니다.</p>
+
+                        <h4 style="font-size: 1.05rem; font-weight: 700; margin-top: 1.5rem;">① 감지할 표현을 입력하는 두 가지 방법</h4>
+                        <p>규칙 하나를 만들 때, 무엇을 잡아낼지 지정하는 방법은 두 가지입니다.</p>
                         <ul>
-                            <li><strong>표시만(경고):</strong> 위반 위치만 알려 주고, 수정 여부는 선생님이 판단합니다.</li>
-                            <li><strong>자동 정리(치환):</strong> 지정한 표현을 정해 둔 단어로 자동으로 바꿔 줍니다.</li>
-                            <li><strong>순화 유도(문맥 기반 변경):</strong> 문맥을 파악해 더 적절한 표현으로 다듬도록 제안합니다.</li>
+                            <li><strong>일반 단어·문구 입력 (기본):</strong> <strong>[교사용 표시 문구]</strong> 칸에 잡고 싶은 단어를 그대로 적으면 됩니다. (예: <code>뛰어난</code>, <code>최고의</code>, <code>완벽한</code>) 정규식 같은 전문 지식이 필요 없어 대부분의 규칙은 이 방법으로 충분합니다.
+                                <ul style="margin-top: 0.4rem;">
+                                    <li><strong>비슷한 표현도 함께 감지 (어미 변화 포함):</strong> 이 옵션을 켜면 <code>뛰어난</code> 하나만 적어도 <code>뛰어나다</code>, <code>뛰어나며</code>처럼 어미가 바뀐 형태까지 자동으로 함께 잡아 줍니다.</li>
+                                </ul>
+                            </li>
+                            <li><strong>정규식(Regex) 직접 입력 (고급):</strong> <strong>[고급 설정 표시]</strong>를 켜면 입력 모드를 <code>정규식</code>으로 바꾸고 감지 패턴을 직접 작성할 수 있습니다. 복잡한 조건(숫자+단위, 특정 형식 등)을 정밀하게 잡을 때 사용합니다.</li>
                         </ul>
                         <div class="alert-info-custom" style="padding: 0.8rem; font-size: 0.95rem;">
-                            <i class="bi bi-magic text-accent me-2"></i><strong>규칙 작성이 어렵다면:</strong> 정규식(Regex)이나 어미 감지 같은 정밀 조건도 지원하지만, 직접 만들기 어렵다면 <strong>[AI로 규칙 생성]</strong> 기능에 원하는 규칙을 문장으로 설명해 주세요. KIBU가 알맞은 감지 규칙을 대신 만들어 줍니다.
+                            <i class="bi bi-magic text-accent me-2"></i><strong>규칙 작성이 어렵다면:</strong> 정규식을 직접 만들기 어렵다면 <strong>[AI로 규칙 만들기]</strong> 버튼을 누르고 원하는 규칙을 <strong>평소 말하듯 문장으로 설명</strong>해 주세요. (예: "교외 수상 실적이 들어가면 잡아 줘") KIBU가 알맞은 감지 규칙을 대신 만들어 목록에 추가해 줍니다.
                         </div>
+
+                        <h4 style="font-size: 1.05rem; font-weight: 700; margin-top: 1.5rem;">② 걸린 표현을 어떻게 처리할지 (두 가지 방식)</h4>
+                        <p>규칙마다 위반 표현을 발견했을 때의 처리 방식을 아래 두 가지 중에서 선택합니다.</p>
+                        <ul>
+                            <li><strong>📋 검토 카드에 표시 (교사 확인):</strong> 자동으로 바꾸지 않고, 검토 패널에 <strong>이슈 카드</strong>로 띄워 선생님이 직접 확인하고 수정합니다. 판단이 필요한 대부분의 규칙(과장 표현, 주관적 서술 등)은 이 방식이 <strong>가장 안전</strong>합니다.</li>
+                            <li><strong>🔄 형식·표현 자동 정리 (대체어 지정):</strong> 걸린 표현을 미리 정해 둔 단어로 <strong>초안 생성 시 자동으로 바꿔</strong> 줍니다. (예: <code>체육대회</code> → <code>체육활동</code>) 문맥을 따질 필요 없이 단순 치환이 명확할 때만 사용하세요.
+                                <ul style="margin-top: 0.4rem;">
+                                    <li><strong>대체어를 비워 두면</strong> 자동으로 바꾸지 않고 검토 카드에만 표시됩니다.</li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <div class="alert-info-custom" style="background-color: #fffbeb; border-color: #fde68a; color: #92400e; padding: 0.8rem; font-size: 0.95rem;">
+                            <i class="bi bi-lightbulb-fill me-2"></i><strong>어떤 방식을 고를까?</strong> 자연스럽게 바꿀 대체어가 <strong>명확하게 하나로 정해질 때만</strong> '자동 정리'를 쓰고, 조금이라도 판단·문맥이 필요하면 '검토 카드에 표시'를 선택하세요. 잘못된 자동 치환보다 교사 확인이 안전합니다.
+                        </div>
+
+                        <h4 style="font-size: 1.05rem; font-weight: 700; margin-top: 1.5rem;">③ 규칙을 더 정교하게 다듬기</h4>
+                        <ul>
+                            <li><strong>심각도:</strong> <strong>금지</strong>(반드시 걸러야 하는 표현) · <strong>주의</strong> · <strong>참고</strong>로 나눠, 위반의 경중을 구분해 표시합니다.</li>
+                            <li><strong>적용 범위:</strong> 규칙을 <strong>전체</strong>에 적용할지, <strong>교과세특·진로활동·자율활동·행동특성및종합의견</strong> 중 특정 영역에만 적용할지 지정할 수 있습니다.</li>
+                            <li><strong>규칙 테스트:</strong> 예시 문장을 입력하면 이 규칙이 실제로 무엇을 잡아내는지 저장 전에 미리 확인할 수 있습니다.</li>
+                            <li><strong>교사용 설명:</strong> "왜 조심해야 하는지"를 적어 두면 검토 카드에 함께 표시되어, 나중에 이유를 다시 떠올리기 쉽습니다.</li>
+                        </ul>
+
                         <p class="text-secondary" style="font-size: 0.95rem;"><i class="bi bi-lightbulb me-1"></i> 초안을 엑셀 등으로 <strong>불러온 뒤 '기재규칙검사'만 단독으로</strong> 돌려, 금지어·표현만 빠르게 점검할 수도 있습니다.</p>
                         <div class="alert-info-custom" style="padding: 0.8rem; font-size: 0.95rem;">
                             <i class="bi bi-shield-check text-accent me-2"></i><strong>안전한 생기부 작성:</strong> 사람이 놓치기 쉬운 규정 위반 단어나 초과된 바이트를 시스템이 한 번 더 걸러주므로, 나이스 최종 입력 시 발생할 수 있는 반려나 수정 사유를 사전에 완벽히 차단할 수 있습니다.
