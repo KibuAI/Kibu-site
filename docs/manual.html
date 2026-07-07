@@ -157,13 +157,21 @@
                                 <li><strong>자료 판독(스캔본·이미지)·초안 생성:</strong> <code>GPT-5.4</code> — 손글씨 지도/보고서 판독과 근거 기반 서술에 필요한 높은 성능</li>
                                 <li><strong>문체 정제·규정 검증:</strong> <code>GPT-5.4-mini</code> — 텍스트 정리에 특화된 경량 모델로 품질은 유지하면서 비용을 절감</li>
                             </ul>
-                            <strong>[더보기(⋮) &rarr; 설정 &rarr; AI 모델]</strong>에서 단계별 모델을 언제든 자유롭게 변경할 수 있습니다. 일반적으로 <strong>더 고급 모델을 사용할수록 학술적이고 정교한 표현이 등장할 확률이 높아집니다.</strong>
+                            메인 화면 <strong>우측 상단의 [설정] 버튼 &rarr; [AI 모델]</strong>에서 단계별 모델을 언제든 자유롭게 변경할 수 있습니다. 일반적으로 <strong>더 고급 모델을 사용할수록 학술적이고 정교한 표현이 등장할 확률이 높아집니다.</strong>
                             <div style="margin-top: 0.6rem; padding-top: 0.6rem; border-top: 1px dashed #a7f3d0;">
                                 <i class="bi bi-google me-1"></i><strong>제미나이(Gemini) 사용 시:</strong> 기본 구성은 OpenAI 기준이므로, 제미나이 키만 사용하시려면 <strong>[설정 → 고급 모드]</strong>를 켠 뒤 모든 단계를 제미나이 모델로 직접 지정해야 합니다. (제미나이도 스캔본 이미지 판독을 지원합니다.)
                                 <div style="margin-top: 0.5rem;">
                                     <i class="bi bi-pencil-square me-1"></i><strong>손글씨·스캔본 판독은 상위 모델 권장:</strong> 제미나이로 손글씨 원본이나 스캔 PDF를 판독할 때는 <strong>Gemini 3.1 Pro (Preview)</strong>처럼 <strong>고급(Pro) 모델</strong>을 사용해야 인식 정확도가 확보됩니다. Flash 등 경량 모델은 빠르고 저렴하지만 흐린 손글씨나 복잡한 표를 잘못 읽을 수 있으므로, <strong>자료 판독 단계만큼은 상위 모델로 지정</strong>하시는 것을 권장합니다.
                                 </div>
                             </div>
+                        </div>
+                        <div class="alert-info-custom" style="margin-top: 0.8rem;">
+                            <i class="bi bi-arrow-repeat me-2"></i><strong>모델 목록 새로고침:</strong> <strong>[설정 → AI 모델]</strong> 화면의 <strong>[모델 새로고침]</strong> 버튼을 누르면, 입력한 API 키로 제공사(OpenAI·Google) 서버에 직접 조회하여 <strong>그 키로 실제 사용할 수 있는 최신 모델 목록을 불러옵니다.</strong> 새 모델(예: 새로 출시된 Gemini Pro, GPT 신규 버전)이 목록에 보이지 않을 때 이 버튼을 눌러 주세요.
+                            <ul class="mb-0 mt-2">
+                                <li>새로고침 시 입력한 <strong>OpenAI 키·제미나이 키가 함께 저장</strong>된 뒤 각 키에 맞는 모델을 조회합니다. (키를 넣은 제공사만 조회)</li>
+                                <li>인터넷이 잠시 불안정하거나 키가 잘못되어 조회에 실패해도, <strong>기본 내장 모델 목록은 그대로 유지</strong>되어 작업에는 지장이 없습니다.</li>
+                                <li>목록에 원하는 모델이 안 보이면, 대개 <strong>해당 키의 결제/사용 권한이 없거나 아직 그 계정에 개방되지 않은 모델</strong>입니다.</li>
+                            </ul>
                         </div>
                         <div class="alert-info-custom" style="background-color: #fffbeb; border-color: #fde68a; color: #92400e; margin-top: 0.8rem;">
                             <i class="bi bi-coin me-2"></i><strong>예상 비용 안내:</strong> 기본 모델 구성 기준, 학생 1명의 초안을 한 번 생성할 때 첨부한 자료의 양과 스캔본 여부에 따라 <strong>약 200~500원</strong> 정도의 API 사용료가 발생합니다. 자료가 적으면 더 저렴하고, 스캔본이 많거나 분량이 큰 경우 비용이 다소 올라갑니다. <strong>사용료는 선택한 모델에 따라 달라지며</strong>, 일반적으로 <strong>제미나이(Gemini) 계열이 OpenAI보다 저렴한 편</strong>이라 비용을 더 아끼고 싶다면 고급 모드에서 제미나이로 전환하는 것도 방법입니다. (다만 모델별로 문체·판독 품질 차이가 있을 수 있습니다.)
@@ -175,7 +183,7 @@
                         </div>
 
                         <ul>
-                            <li>메인 화면 우측 상단의 <strong>[더보기(⋮)] &rarr; [설정]</strong> 메뉴를 클릭하여 설정 창을 연 뒤, <strong>[API 연동]</strong> 탭에 발급받은 키를 붙여넣습니다.</li>
+                            <li>메인 화면 우측 상단의 <strong>[설정]</strong> 버튼을 클릭하여 설정 창을 연 뒤, <strong>[API 연동]</strong> 탭에 발급받은 키를 붙여넣습니다.</li>
                             <li><strong>외부 이미지 분석:</strong> 손글씨나 스캔 PDF 등 이미지 기반의 문서를 분석하려면 이 옵션을 반드시 <strong>ON</strong>으로 켜두셔야 합니다.</li>
                         </ul>
                         <div class="mockup-frame">
@@ -295,7 +303,7 @@
                         <h2>5. 초안 생성</h2>
                         
                         <h3>개별 생성 vs 학급 전체 일괄 생성</h3>
-                        <p>특정 학생만 확인하고 싶을 때는 개별 생성 버튼을, 전체 준비가 끝났을 때는 <strong>일괄 생성</strong> 버튼을 클릭하세요.</p>
+                        <p>특정 학생만 확인하고 싶을 때는 상단 작업 흐름의 <strong>[✨ AI 개별 초안 생성]</strong> 버튼을, 전체 준비가 끝났을 때는 우측 상단 <strong>[전체 작업] &rarr; [학급 전체 일괄 생성]</strong>을 클릭하세요. <strong>자동 검증</strong> 체크는 <strong>[AI 개별 초안 생성]</strong> 버튼 오른쪽에 있으며, 개별·전체 생성에 함께 적용됩니다. 초안이 생성되면 화면은 자동으로 <strong>[AI 초안 에디터]</strong> 패널로 전환됩니다.</p>
                         <div class="alert-info-custom" style="padding: 0.8rem; font-size: 0.95rem;">
                             <i class="bi bi-toggles text-accent me-2"></i><strong>자동 검증 옵션(켜기/끄기):</strong> <strong>자동 검증</strong>을 켜면 초안 생성 시 <strong>학생 자료와 초안의 정합성 + 기재금지어 등 규칙 검사</strong>를 함께 수행합니다. 맞춤형 프롬프트로 나오는 <strong>초안 품질만 빠르게 확인</strong>하고 싶을 때는 자동 검증을 꺼도 됩니다. (검증은 나중에 검토 카드나 기재규칙검사로 다시 돌릴 수 있습니다.)</div>
                         <div class="row">
@@ -326,6 +334,31 @@
                             <li><strong>불확실 판독 확인:</strong> 손글씨가 너무 흐려 확신할 수 없는 단어는 노란색으로 하이라이트됩니다. 반드시 선생님의 눈으로 다시 확인해 주세요.</li>
                             <li><strong>바이트 확인:</strong> 수정 과정에서도 실시간으로 바이트를 체크합니다.</li>
                         </ul>
+
+                        <h3 style="margin-top: 1.5rem;">목표 바이트(글자 수) 조정과 동작 방식</h3>
+                        <p>초안 에디터 상단의 <strong>목표 바이트</strong> 값은 그 학생·영역의 <strong>최종 분량 한도</strong>입니다. 영역을 선택하면 표준값(<strong>교과세특·창의적체험활동 1,500B</strong>, <strong>행동특성및종합의견 900B</strong>)이 자동으로 채워지며, 필요할 때 직접 숫자를 바꿀 수 있습니다.</p>
+                        <div class="alert-info-custom" style="padding: 0.9rem;">
+                            <i class="bi bi-sliders text-accent me-2"></i><strong>값을 수정하면 이렇게 동작합니다.</strong>
+                            <ul class="mb-0 mt-2">
+                                <li><strong>수동 조정 모드로 전환:</strong> 표준값과 다른 숫자를 입력하면 그 값이 <strong>기준 한도로 고정</strong>됩니다. (표준값으로 되돌리려면 <strong>[영역 기본값으로 초기화]</strong>를 누르세요.)</li>
+                                <li><strong>실시간 게이지 갱신:</strong> 현재 글자 수가 한도를 넘으면 경고 표시가, 권장 하한(<strong>한도의 약 80%</strong>) 아래로 너무 짧으면 "분량 부족" 안내가 즉시 나타납니다.</li>
+                                <li><strong>초안 생성 목표에 반영:</strong> 새로 초안을 생성할 때 AI는 정제 여유분을 감안해 <strong>한도의 약 1.2배(행발은 1.3배)</strong>를 상한 목표로 넉넉히 쓴 뒤, 정제 단계에서 최종 한도 이내로 줄입니다. 그래서 값을 올리면 더 길고 풍부하게, 내리면 더 압축된 초안이 나옵니다.</li>
+                                <li><strong>기재규칙검사에 반영:</strong> 검사 시 최종 글자 수가 한도를 넘으면 <strong>[BYTE_LIMIT]</strong> 검토 카드로 경고합니다.</li>
+                                <li><strong>기존 본문은 자동으로 잘리지 않습니다.</strong> 목표 바이트를 낮춰도 이미 작성된 글은 그대로 유지되며, 줄이는 것은 선생님의 판단에 맡깁니다. (미세한 1~2바이트 차이는 조사·수식어 하나만 다듬으면 맞춰집니다.)</li>
+                            </ul>
+                        </div>
+
+                        <h3 style="margin-top: 1.5rem;">여러 명 한 번에 검사할 때(전체 기재규칙검사)의 동작</h3>
+                        <p><strong>[전체 기재규칙검사]</strong>는 학생을 <strong>한 명씩 독립적으로</strong> 검증합니다. 각 학생마다 설정된 <strong>검증 모델</strong>로 별도의 AI 호출이 이루어지므로, 한 학생의 결과가 다른 학생에게 섞이지 않습니다.</p>
+                        <div class="alert-info-custom" style="padding: 0.9rem;">
+                            <i class="bi bi-cpu text-accent me-2"></i><strong>"끊기듯 진행되는" 느낌은 정상입니다.</strong>
+                            <ul class="mb-0 mt-2">
+                                <li><strong>동시 3명 + 페이싱 간격:</strong> API 사용량 제한(Rate Limit)에 걸리지 않도록 <strong>최대 3명씩 병렬</strong>로 처리하고, 각 처리 사이에 짧은 간격을 둡니다. 그래서 진행 표시줄이 3명 단위로 멈췄다 이어지듯 보이는데, <strong>중단이 아니라 안전을 위한 정상 동작</strong>입니다.</li>
+                                <li><strong>자동 재시도·대체:</strong> 일시적인 네트워크·서버 혼잡(타임아웃, 429, 5xx)이 발생하면 같은 모델로 <strong>지수적 간격을 두고 자동 재시도</strong>하고, 그래도 안 되면 보조 모델로 넘겨 최대한 완료합니다.</li>
+                                <li><strong>실패한 학생 확인:</strong> 재시도로도 검증 호출이 끝내 실패한 학생은 검토 카드에 <strong>"검증 AI 호출 실패"</strong>로 남습니다. 이 학생만 잠시 후 개별 <strong>[기재규칙 재검사]</strong>로 다시 돌리면 됩니다.</li>
+                                <li><strong>무료 티어 주의:</strong> 무료 계정 키는 분당 요청 제한이 낮아 대량 검사 중 실패가 잦을 수 있습니다. 결제(Pay-as-you-go)를 연동하면 훨씬 안정적으로 완료됩니다.</li>
+                            </ul>
+                        </div>
                     </section>
 
                     <!-- 7. 내보내기 -->
@@ -348,7 +381,7 @@
                         </div>
                         
                         <h3>규칙 관리 (금지어 및 바이트 검증)</h3>
-                        <p>학교마다 학교생활기록부에 기재해서는 안 되는 금칙어(예: 외부 대회명, 사설 기관명, 부모 직업 등)나, 과목별로 정해진 바이트 제한이 다를 수 있습니다. <strong>[규칙 관리]</strong> 탭에서 우리 학교만의 금지 단어 목록과 바이트 상한선을 미리 등록해 두세요. 초안을 생성하거나 검토할 때 KIBU가 해당 규칙을 위반한 곳이 없는지 실시간으로 꼼꼼하게 검증하여 경고해 줍니다.</p>
+                        <p>학교마다 학교생활기록부에 기재해서는 안 되는 금칙어(예: 외부 대회명, 사설 기관명, 부모 직업 등)나, 과목별로 정해진 바이트 제한이 다를 수 있습니다. 메인 화면 우측 상단의 <strong>[규칙 관리자]</strong> 버튼을 눌러 우리 학교만의 금지 단어 목록과 바이트 상한선을 미리 등록해 두세요. 초안을 생성하거나 검토할 때 KIBU가 해당 규칙을 위반한 곳이 없는지 실시간으로 꼼꼼하게 검증하여 경고해 줍니다.</p>
 
                         <h4 style="font-size: 1.05rem; font-weight: 700; margin-top: 1.5rem;">① 감지할 표현을 입력하는 두 가지 방법</h4>
                         <p>규칙 하나를 만들 때, 무엇을 잡아낼지 지정하는 방법은 두 가지입니다.</p>
@@ -476,7 +509,7 @@
                                 </h3>
                                 <div id="faqQ1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
                                     <div class="accordion-body">
-                                        여러 자료를 동시에 분석하고 맥락을 연결하는 One-Pass 과정은 일반 요약보다 많은 연산이 필요합니다. 한 명씩 기다리지 마시고 <strong>[학급 전체 일괄 생성]</strong>을 클릭한 뒤, 백그라운드에서 동작하게 두고 다른 업무를 보시는 것을 권장합니다.
+                                        여러 자료를 동시에 분석하고 맥락을 연결하는 One-Pass 과정은 일반 요약보다 많은 연산이 필요합니다. 한 명씩 기다리지 마시고 우측 상단 <strong>[전체 작업] &rarr; [학급 전체 일괄 생성]</strong>을 클릭한 뒤, 백그라운드에서 동작하게 두고 다른 업무를 보시는 것을 권장합니다.
                                     </div>
                                 </div>
                             </div>
