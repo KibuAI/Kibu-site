@@ -402,6 +402,25 @@
                                 <li><strong>무료 티어 주의:</strong> 무료 계정 키는 분당 요청 제한이 낮아 대량 검사 중 실패가 잦을 수 있습니다. 결제(Pay-as-you-go)를 연동하면 훨씬 안정적으로 완료됩니다.</li>
                             </ul>
                         </div>
+
+                        <h3 style="margin-top: 1.5rem;">완성된 초안(엑셀)을 불러와 규칙 검사만 하기</h3>
+                        <p>이미 작성해 둔 <strong>생기부 초안이 엑셀</strong>(학번·이름·초안 내용 등)로 있다면, 초안을 새로 생성하지 않고 <strong>기재규칙검사만</strong> 돌려 금지어·표현·바이트를 빠르게 점검할 수 있습니다.</p>
+                        <div class="alert-info-custom" style="padding: 0.9rem;">
+                            <i class="bi bi-file-earmark-check text-accent me-2"></i><strong>엑셀 초안 &rarr; 규칙 검사 (3단계)</strong>
+                            <ol class="mb-0 mt-2">
+                                <li><strong>자료 가져오기:</strong> 학번·이름과 초안 열이 담긴 엑셀을 <strong>[자료 가져오기]</strong>로 불러오면, 각 학생의 <strong>개별 자료함</strong>에 열 단위로 저장됩니다.</li>
+                                <li><strong>검사 실행:</strong> 초안 에디터가 <strong>비어 있는 상태</strong>에서 <strong>[기재규칙검사]</strong>(현재 학생) 또는 <strong>[전체 작업 &rarr; 전체 기재규칙검사]</strong>(학급 전체)를 누릅니다. <em>"초안 에디터가 비어 있습니다. 개별 자료함의 데이터를 불러오시겠습니까?"</em>에 <strong>[예]</strong>를 선택합니다.</li>
+                                <li><strong>열 선택:</strong> 자료함에 있는 열(예: <code>교과세특 초안</code>) 목록이 뜨고, 각 열마다 <strong>해당 학생 수·항목 수·미리보기</strong>가 표시됩니다. 초안으로 쓸 열을 고르면 각 학생 초안 영역이 채워지고 <strong>곧바로 규칙 검사가 진행</strong>됩니다.</li>
+                            </ol>
+                            <div style="margin-top: 0.6rem; padding-top: 0.6rem; border-top: 1px dashed #a7f3d0;">
+                                <i class="bi bi-exclamation-circle me-1"></i><strong>참고</strong>
+                                <ul class="mb-0 mt-1">
+                                    <li><strong>기존 초안 덮어쓰기</strong> 옵션을 켜면 이미 초안이 있는 학생도 자료함 내용으로 교체됩니다(끄면 빈 학생만 채움). 덮어쓸 학생이 있으면 한 번 더 확인합니다.</li>
+                                    <li>"불러올 자료가 없습니다" 안내가 뜨면, 먼저 <strong>[자료 가져오기]</strong>로 학생별 초안/자료를 넣어 주세요.</li>
+                                    <li>불러온 내용은 <strong>현재 선택한 영역</strong>의 초안으로 들어갑니다. 실행 전 상단의 <strong>영역 선택</strong>이 맞는지 확인하세요.</li>
+                                </ul>
+                            </div>
+                        </div>
                     </section>
 
                     <!-- 7. 내보내기 -->
