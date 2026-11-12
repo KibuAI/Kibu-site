@@ -1,0 +1,60 @@
+{
+  "updatedAt": "2026-11-13",
+  "description": "KIBU AI 추천 모델 안내 목록 (향후 신형 모델 출시 시 앱 재설치 없이 자동 반영됩니다)",
+  "models": [
+    {
+      "provider": "openai",
+      "modelId": "gpt-6.1-sol",
+      "friendlyRoleNote": "고급 초안 작성 · 정밀 손글씨 재확인 권장",
+      "recommended": true
+    },
+    {
+      "provider": "openai",
+      "modelId": "gpt-6-sol",
+      "friendlyRoleNote": "표준 초안 작성 · 스캔 판독 균형 권장",
+      "recommended": true
+    },
+    {
+      "provider": "openai",
+      "modelId": "gpt-6-luna",
+      "friendlyRoleNote": "빠른 규칙 점검 · 가벼운 정리용",
+      "recommended": true
+    },
+    {
+      "provider": "openai",
+      "modelId": "gpt-5.6-sol",
+      "friendlyRoleNote": "안정 호환 초안 작성용",
+      "recommended": true
+    },
+    {
+      "provider": "openai",
+      "modelId": "gpt-5.5",
+      "friendlyRoleNote": "호환성 폴백 표준 모델",
+      "recommended": true
+    },
+    {
+      "provider": "gemini",
+      "modelId": "gemini-4-argon",
+      "friendlyRoleNote": "흐린 손글씨 · 시각 활동지 정밀 판독 권장",
+      "recommended": true
+    },
+    {
+      "provider": "gemini",
+      "modelId": "gemini-4-carbon",
+      "friendlyRoleNote": "고난도 손글씨 · 복합 탐구 분석용",
+      "recommended": true
+    },
+    {
+      "provider": "gemini",
+      "modelId": "gemini-3.8-flash",
+      "friendlyRoleNote": "빠르고 정확한 스캔 판독 · 가성비 초안 권장",
+      "recommended": true
+    },
+    {
+      "provider": "gemini",
+      "modelId": "gemini-3.5-flash-lite",
+      "friendlyRoleNote": "대량 학번 배정 · 초절약 모드용",
+      "recommended": true
+    }
+  ]
+}
