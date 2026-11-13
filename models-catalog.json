@@ -41,7 +41,13 @@
     {
       "provider": "gemini",
       "modelId": "gemini-4-carbon",
-      "friendlyRoleNote": "고난도 손글씨 · 복합 탐구 분석용",
+      "friendlyRoleNote": "고난도 손글씨 · 복합 탐구 분석용 (유료키 전용)",
+      "recommended": true
+    },
+    {
+      "provider": "gemini",
+      "modelId": "gemini-4-hydrogen",
+      "friendlyRoleNote": "Gemini 4 고성능 추론·스캔 · 무료/유료 모두 호환",
       "recommended": true
     },
     {
