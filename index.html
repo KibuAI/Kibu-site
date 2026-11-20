@@ -19,7 +19,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/site.css?v=20261113">
+    <link rel="stylesheet" href="css/site.css?v=20261121">
 </head>
 <body>
 
@@ -50,8 +50,8 @@
         <div class="container">
             <div data-aos="fade-up" data-aos-duration="900">
                 <span class="badge-pill">
-                    <span class="tag">v2.0.5 최신 업데이트</span>
-                    슬레이트 칠판 작업실 · 위치 고정 확대 배분 · 자동 줄맞춤 엑셀
+                    <span class="tag">v2.1.2 최신 업데이트</span>
+                    7대 과정 중심 서술 원리 · 한문장 정밀 다듬기 · 원클릭 학번 배정
                 </span>
                 <h1 class="hero-title">
                     학생 활동지 정리부터 생기부 초안까지,<br>
@@ -295,29 +295,49 @@
                 <p class="text-white-50">설치 파일 하나만 실행하면 바로 시작할 수 있는 Windows 전용 프로그램입니다. 이미 설치하신 선생님은 앱을 켜면 새 버전이 자동으로 안내됩니다.</p>
             </div>
             <div class="row justify-content-center">
-                <div class="col-md-10 col-lg-8 col-xl-7" data-aos="fade-up">
-                    <div class="download-card p-5 text-center">
+                <div class="col-md-11 col-lg-9 col-xl-8" data-aos="fade-up">
+                    <div class="download-card p-4 p-md-5 text-center">
                         <div class="d-inline-flex align-items-center gap-2 bg-dark bg-opacity-25 px-3 py-1 rounded-pill mb-4">
                             <span class="badge bg-success">최신 버전</span>
-                            <span class="small version-pill">26.11.15 · v2.0.5</span>
+                            <span class="small version-pill">26.11.21 · v2.1.2</span>
                         </div>
-                        <div class="d-grid gap-3 d-sm-flex justify-content-center mb-4">
-                            <a href="https://github.com/KibuAI/Kibu-site/releases/latest/download/KibuBeta-win-Setup.exe" class="btn btn-primary-c btn-lg px-4 text-nowrap"><i class="bi bi-download me-2"></i> Windows용 설치 파일 다운로드</a>
-                            <a href="docs/manual.html" class="btn btn-outline-light btn-lg px-4 text-nowrap"><i class="bi bi-book me-2"></i> 쉬운 사용 설명서</a>
+                        <div class="d-grid gap-3 d-sm-flex flex-wrap justify-content-center mb-3">
+                            <a href="https://github.com/KibuAI/Kibu-site/releases/latest/download/KibuBeta-win-Setup.exe" class="btn btn-primary-c btn-lg px-4 text-nowrap"><i class="bi bi-download me-2"></i> Windows용 설치 파일 다운로드 (.exe)</a>
+                            <a href="https://github.com/KibuAI/Kibu-site/releases/latest/download/KibuBeta-win-Portable.zip" class="btn btn-zip-c btn-lg px-4 text-nowrap"><i class="bi bi-file-earmark-zip me-2"></i> 브라우저 차단 시 압축파일로 받기 (.zip)</a>
                         </div>
-                        <details class="download-help text-start mb-4">
-                            <summary><i class="bi bi-exclamation-triangle"></i>다운로드가 차단되거나 "Windows의 PC 보호" 창이 뜨나요?</summary>
-                            <p>별도의 상업용 서명 인증서가 없는 설치 파일이라 처음 실행할 때 브라우저나 Windows에서 확인 창이 뜰 수 있습니다. 안전한 프로그램이니 아래 순서대로 눌러 진행해 주세요.</p>
-                            <ul>
-                                <li><strong>Edge 브라우저</strong>: 다운로드 목록(<kbd>Ctrl</kbd>+<kbd>J</kbd>)에서 파일 오른쪽 <strong>…</strong> → <strong>유지</strong> → <strong>자세히 표시</strong> → <strong>그래도 계속</strong></li>
-                                <li><strong>Chrome 브라우저</strong>: 다운로드 목록(<kbd>Ctrl</kbd>+<kbd>J</kbd>)에서 <strong>계속</strong> 또는 <strong>위험한 파일 다운로드</strong></li>
-                                <li><strong>파란색 "Windows의 PC 보호" 창</strong>: <strong>추가 정보</strong> 클릭 → 오른쪽 아래 <strong>실행</strong> 클릭</li>
-                                <li><strong>학교 PC 보안 차단 시</strong>: 정보 담당 선생님께 예외 허용을 요청하시거나, 개인 노트북에서 작업하실 수 있습니다.</li>
-                            </ul>
-                            <p class="mb-0">사용 중 궁금한 점이나 건의 사항은 프로그램 안의 <strong>[문의·건의]</strong> 버튼 또는 <a href="https://forms.gle/X5NkLdBVgjR59bXx5" target="_blank">문의 폼</a>으로 편하게 보내 주세요.</p>
-                        </details>
+                        <div class="mb-4">
+                            <a href="docs/manual.html" class="btn btn-outline-light btn-sm rounded-pill px-3 py-1"><i class="bi bi-book me-1"></i> 처음 시작하는 선생님을 위한 쉬운 사용 설명서 보기</a>
+                        </div>
+
+                        <div class="download-guide-box text-start mb-4">
+                            <div class="download-guide-title">
+                                <i class="bi bi-shield-check"></i> 초보 선생님을 위한 10초 설치 안내 (확인 창이 뜰 때 당황하지 마세요!)
+                            </div>
+                            <p class="mb-2" style="color: rgba(255,255,255,0.78); font-size: 0.85rem;">
+                                현직 교사가 무료로 배포하는 프로그램이라 처음 다운로드할 때만 브라우저나 Windows에서 확인 창이 뜰 수 있습니다. 안전한 파일이니 아래 순서대로 눌러 주세요.
+                            </p>
+                            <div class="download-step-grid">
+                                <div class="download-step-card">
+                                    <span class="download-step-badge">1단계 · 브라우저 다운로드 창</span>
+                                    <div>
+                                        <strong>Edge</strong>: 파일 오른쪽 <strong>[…]</strong> 클릭 &rarr; <strong>[유지]</strong> &rarr; <strong>[자세히 표시]</strong> &rarr; <strong>[그래도 계속]</strong><br>
+                                        <strong>Chrome</strong>: 다운로드 목록(<kbd>Ctrl</kbd>+<kbd>J</kbd>)에서 <strong>[계속]</strong> 또는 <strong>[위험한 파일 다운로드]</strong>
+                                    </div>
+                                </div>
+                                <div class="download-step-card">
+                                    <span class="download-step-badge">2단계 · 파란색 'Windows의 PC 보호' 창</span>
+                                    <div>
+                                        창 한가운데 작은 글씨 <strong>[추가 정보]</strong>를 누르면 오른쪽 아래에 <strong>[실행]</strong> 버튼이 나타납니다. <strong>[실행]</strong>을 누르면 바로 설치됩니다!
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="download-guide-tip">
+                                <i class="bi bi-lightbulb-fill me-1"></i><strong>더 쉬운 방법:</strong> 브라우저에서 <code>.exe</code> 다운로드가 막힌다면 오른쪽의 <strong>[브라우저 차단 시 압축파일로 받기 (.zip)]</strong>를 눌러 압축만 풀고 <code>Kibu.exe</code>를 실행하세요! 한 번만 실행해 두면 <strong>다음 업데이트부터는 보안 경고 없이 앱 안에서 자동으로 업데이트</strong>됩니다. (구버전 v1.x 사용 선생님도 위 버튼으로 한 번만 덮어써 주시면 기존 데이터가 그대로 이어집니다.)
+                            </div>
+                        </div>
+
                         <ul class="download-notes list-unstyled text-start">
-                            <li><i class="bi bi-arrow-repeat"></i>한 번 설치해 두면 다음부터는 프로그램을 켤 때 새 버전이 자동으로 업데이트됩니다.</li>
+                            <li><i class="bi bi-arrow-repeat"></i>앱을 켜면 새 버전이 자동으로 안내되며, 상단 <strong>[도구 &rarr; 최신 버전(업데이트) 확인]</strong> 버튼으로도 언제든 즉시 업데이트할 수 있습니다.</li>
                             <li><i class="bi bi-key"></i>선생님 본인의 OpenAI 또는 Gemini API 키 중 <strong>하나만 있어도</strong> 모든 기능을 바로 쓰실 수 있습니다.</li>
                             <li><i class="bi bi-info-circle"></i>실행에 필요한 .NET 9 환경은 설치 과정에서 알아서 확인하고 함께 설치해 줍니다.</li>
                             <li><i class="bi bi-shield-lock"></i>사용 전 <a href="privacy.html">개인정보 처리 및 AI 이용 안내</a>를 꼭 확인해 주세요.</li>
