@@ -497,6 +497,100 @@ img {
   display: grid;
   grid-template-areas: "stage";
   align-items: start;
+  position: relative;
+}
+
+/* Semi-transparent Video-Style Center Play/Pause Overlay Button */
+.studio-center-transport {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) scale(0.96);
+  z-index: 14;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: rgba(18, 25, 22, 0.50);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(223, 189, 124, 0.36);
+  color: #f6f2e8;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.34);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.26s ease, transform 0.26s var(--ease-out-expo), background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.studio-viewport.is-controls-visible .studio-center-transport {
+  opacity: 0.68;
+  pointer-events: auto;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.studio-viewport.is-paused .studio-center-transport {
+  opacity: 0.80;
+  pointer-events: auto;
+  transform: translate(-50%, -50%) scale(1);
+  background: rgba(18, 25, 22, 0.62);
+  border-color: rgba(223, 189, 124, 0.56);
+}
+
+.studio-center-transport:hover,
+.studio-center-transport:focus-visible {
+  opacity: 0.98 !important;
+  pointer-events: auto;
+  transform: translate(-50%, -50%) scale(1.07) !important;
+  background: rgba(24, 34, 30, 0.78) !important;
+  border-color: rgba(223, 189, 124, 0.82) !important;
+  outline: none;
+}
+
+.studio-center-transport.is-pulsing {
+  transform: translate(-50%, -50%) scale(1.13) !important;
+}
+
+.studio-center-transport .icon-play {
+  display: none;
+  margin-left: 2px;
+}
+
+.studio-center-transport .icon-pause {
+  display: block;
+}
+
+.studio-viewport.is-paused .studio-center-transport .icon-play {
+  display: block;
+}
+
+.studio-viewport.is-paused .studio-center-transport .icon-pause {
+  display: none;
+}
+
+@media (hover: none) {
+  /* 터치 기기에서는 본문 가독성을 해치지 않도록 중앙 오버레이 대신 상단 상태 버튼을 사용 */
+  .studio-center-transport {
+    display: none;
+  }
+}
+
+@media (max-width: 991.98px) {
+  .studio-scenes-stack {
+    display: block;
+  }
+  .studio-scene {
+    display: none;
+    visibility: visible;
+    opacity: 1;
+    pointer-events: auto;
+    transform: none;
+  }
+  .studio-scene.is-active {
+    display: block;
+  }
 }
 
 .studio-scene {
@@ -1168,6 +1262,41 @@ img {
 .ledger-cell p {
   font-size: 0.94rem;
   margin-bottom: 0;
+  color: var(--secondary);
+}
+
+/* Minimal Spec Strip beneath Desktop Preview */
+.spec-strip-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-top: 22px;
+}
+
+@media (max-width: 992px) {
+  .spec-strip-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 576px) {
+  .spec-strip-grid { grid-template-columns: 1fr; gap: 10px; }
+}
+
+.spec-strip-item {
+  padding: 16px 18px;
+  border-radius: 13px;
+  background: var(--bg-paper);
+  border: 1px solid var(--border);
+}
+
+.spec-strip-item strong {
+  display: block;
+  font-size: 0.95rem;
+  color: var(--primary);
+  margin-bottom: 3px;
+}
+
+.spec-strip-item span {
+  font-size: 0.85rem;
   color: var(--secondary);
 }
 

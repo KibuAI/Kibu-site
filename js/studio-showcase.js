@@ -1,42 +1,45 @@
 /* ==========================================================================
    KIBU Live Studio Showcase — Timeline-Synced Choreographed Motion Controller
-   Zero layout shift (CLS = 0), true pause/resume on hover/focus/reduced-motion,
-   full WAI-ARIA tab keyboard navigation.
+   - Center semi-transparent video-style Play / Pause (▶ / ❚❚) overlay button
+   - No surprise auto-freeze on mouse hover; crystal-clear explicit play/pause
+   - Zero layout shift (CLS = 0) across all scenes & presets
    ========================================================================== */
 (function () {
   'use strict';
 
-  var SCENE_DURATION_MS = 7800;
+  var SCENE_DURATION_MS = 7600;
 
   var DRAFT_META = {
     inquiry: {
-      bytes: '1,428 / 1,500 Bytes',
-      instruction: '선택된 방향: 개념 적용 · 심화 탐구 (실험 활동지 + 발표 PPT 통합 서술)'
+      bytes: '585 / 1,500 Bytes',
+      instruction: '개념 적용 · 심화 탐구 (실험 활동지 + 발표 PPT 통합)'
     },
     artifact: {
-      bytes: '1,446 / 1,500 Bytes',
-      instruction: '선택된 방향: 창의 표현 · 산출물 완성 (시각화 의도 및 발표 전달력 연결)'
+      bytes: '549 / 1,500 Bytes',
+      instruction: '창의 표현 · 산출물 완성 (시각화 의도 · 발표 전달력 연결)'
     },
     partial: {
-      bytes: '1,461 / 1,500 Bytes',
-      instruction: '한줄 수정 지시 반영: "대조군 설정 이유만 한 문장으로 선명히 다듬고 나머지 문장은 그대로 유지해 주세요"'
+      bytes: '612 / 1,500 Bytes',
+      instruction: '한줄 수정 지시 반영: "대조군 설정 이유만 선명히 다듬고 앞뒤 문장은 유지"'
     }
   };
 
   var CAPTIONS = [
-    '복합기 60쪽 묶음 스캔본은 페이지별로, 이름 적힌 발표 PPT·한글 묶음(.zip 포함)은 학생별 서랍으로 자동 합산됩니다.',
-    '스캔 원본 종이와 읽힌 글자를 나란히 대조하고, 흐린 글자 하나만 고치면 추가 비전 요금 없이 10초 만에 다시 씁니다.',
-    '단순 보고서 요약을 배제하고, 학생이 모은 여러 자료(스캔+발표PPT)를 엮어 사고 과정 중심 문단으로 완성합니다.'
+    '60쪽 묶음 스캔본은 페이지별로, 이름 적힌 PPT·한글·ZIP 묶음은 학생별 서랍으로 자동 합산됩니다.',
+    '손글씨 원본과 읽힌 글자를 나란히 대조하고, 흐린 단어만 고치면 추가 요금 없이 다시 씁니다.',
+    '모아 둔 여러 자료를 엮어 탐구 과정을 서술하고, 원하는 한 문장만 부분 수정합니다.'
   ];
 
   function initStudioShowcase() {
     var root = document.getElementById('kibu-live-studio');
     if (!root) return;
 
+    var viewport = root.querySelector('.studio-viewport');
     var tabButtons = Array.prototype.slice.call(root.querySelectorAll('[data-scene-tab]'));
     var scenes = Array.prototype.slice.call(root.querySelectorAll('[data-scene-panel]'));
     var playbackBtn = root.querySelector('[data-playback-toggle]');
     var playbackText = root.querySelector('[data-playback-label]');
+    var centerTransportBtn = root.querySelector('[data-center-transport]');
     var statusCaption = root.querySelector('[data-studio-caption]');
 
     var incomingItems = Array.prototype.slice.call(root.querySelectorAll('[data-incoming-idx]'));
@@ -68,9 +71,9 @@
     var elapsedInScene = 0;
     var appliedStageStep = -1;
     var userPinnedVariant = null;
-    var isHoverPaused = false;
-    var isFocusPaused = false;
-    var isManualPaused = prefersReducedMotion;
+    var isPaused = prefersReducedMotion;
+    var controlsHideTimer = null;
+    var pulseTimer = null;
     var lastFrameTs = null;
 
     function setBadge(el, text, bump) {
@@ -85,7 +88,6 @@
     }
 
     function applyScene0Phase(phase, allowBump) {
-      // phase: 0 = initial, 1 = scan routed, 2 = ppt routed, 3 = hwp/zip merged
       incomingItems.forEach(function (el, idx) {
         var routing = (phase === 1 && idx === 0) ||
                       (phase === 2 && idx === 1) ||
@@ -131,7 +133,7 @@
         if (ocrStatus) ocrStatus.textContent = '손글씨 원문 대조 중...';
       } else {
         ocrToken.textContent = '이산화망가니즈(MnO₂) ✓';
-        if (ocrStatus) ocrStatus.textContent = '단어 1개 정정 완료 · 이미지 재판독 없이 10초 재작성 준비됨';
+        if (ocrStatus) ocrStatus.textContent = '단어 1개 정정 완료 · 즉시 반영';
       }
     }
 
@@ -152,13 +154,13 @@
     function syncTimelineStep() {
       if (activeSceneIndex === 0) {
         var p0 = prefersReducedMotion ? 3 :
-                 (elapsedInScene >= 3800 ? 3 : (elapsedInScene >= 2100 ? 2 : (elapsedInScene >= 400 ? 1 : 0)));
+                 (elapsedInScene >= 3600 ? 3 : (elapsedInScene >= 1950 ? 2 : (elapsedInScene >= 350 ? 1 : 0)));
         if (p0 !== appliedStageStep) {
           applyScene0Phase(p0, appliedStageStep >= 0);
           appliedStageStep = p0;
         }
       } else if (activeSceneIndex === 1) {
-        var p1 = (prefersReducedMotion || elapsedInScene >= 2000) ? 1 : 0;
+        var p1 = (prefersReducedMotion || elapsedInScene >= 1900) ? 1 : 0;
         if (p1 !== appliedStageStep) {
           applyScene1Phase(p1);
           appliedStageStep = p1;
@@ -210,14 +212,48 @@
       syncTimelineStep();
     }
 
-    function updatePlaybackIndicator() {
-      if (!playbackBtn || !playbackText) return;
-      var paused = isManualPaused || isHoverPaused || isFocusPaused;
-      playbackBtn.classList.toggle('is-paused', paused);
-      playbackBtn.setAttribute('aria-pressed', isManualPaused ? 'true' : 'false');
-      playbackText.textContent = isManualPaused
-        ? '자동 재생 멈춤 (클릭해 재생)'
-        : ((isHoverPaused || isFocusPaused) ? '읽는 중 잠시 멈춤' : '실제 작업 흐름 자동 재생 중');
+    function updatePlaybackUI(pulseCenter) {
+      if (viewport) {
+        viewport.classList.toggle('is-paused', isPaused);
+      }
+
+      if (playbackBtn && playbackText) {
+        playbackBtn.classList.toggle('is-paused', isPaused);
+        playbackText.textContent = isPaused ? '일시정지됨 · 재생하기' : '자동 재생 중';
+      }
+
+      if (centerTransportBtn) {
+        centerTransportBtn.setAttribute('aria-label', isPaused ? '자동 재생 시작' : '자동 재생 일시정지');
+        centerTransportBtn.setAttribute('title', isPaused ? '클릭하여 자동 재생' : '클릭하여 일시정지');
+        if (pulseCenter && !prefersReducedMotion) {
+          if (pulseTimer) clearTimeout(pulseTimer);
+          centerTransportBtn.classList.add('is-pulsing');
+          pulseTimer = setTimeout(function () {
+            centerTransportBtn.classList.remove('is-pulsing');
+          }, 240);
+        }
+      }
+    }
+
+    function togglePaused() {
+      isPaused = !isPaused;
+      if (!isPaused) {
+        revealHoverControlsTemporarily();
+      }
+      updatePlaybackUI(true);
+    }
+
+    function revealHoverControlsTemporarily() {
+      if (!viewport) return;
+      viewport.classList.add('is-controls-visible');
+      if (controlsHideTimer) {
+        clearTimeout(controlsHideTimer);
+      }
+      controlsHideTimer = setTimeout(function () {
+        if (!isPaused && viewport) {
+          viewport.classList.remove('is-controls-visible');
+        }
+      }, 1900);
     }
 
     tabButtons.forEach(function (btn, idx) {
@@ -261,40 +297,31 @@
     });
 
     if (playbackBtn) {
-      playbackBtn.addEventListener('click', function () {
-        isManualPaused = !isManualPaused;
-        updatePlaybackIndicator();
+      playbackBtn.addEventListener('click', togglePaused);
+    }
+
+    if (centerTransportBtn) {
+      centerTransportBtn.addEventListener('click', function (e) {
+        e.stopPropagation();
+        togglePaused();
       });
     }
 
-    root.addEventListener('mouseenter', function () {
-      isHoverPaused = true;
-      updatePlaybackIndicator();
-    });
-
-    root.addEventListener('mouseleave', function () {
-      isHoverPaused = false;
-      updatePlaybackIndicator();
-    });
-
-    root.addEventListener('focusin', function () {
-      isFocusPaused = true;
-      updatePlaybackIndicator();
-    });
-
-    root.addEventListener('focusout', function (e) {
-      if (!root.contains(e.relatedTarget)) {
-        isFocusPaused = false;
-        updatePlaybackIndicator();
-      }
-    });
+    if (viewport) {
+      viewport.addEventListener('mouseenter', revealHoverControlsTemporarily);
+      viewport.addEventListener('mousemove', revealHoverControlsTemporarily);
+      viewport.addEventListener('mouseleave', function () {
+        if (controlsHideTimer) clearTimeout(controlsHideTimer);
+        viewport.classList.remove('is-controls-visible');
+      });
+    }
 
     function tick(now) {
       if (lastFrameTs === null) lastFrameTs = now;
       var dt = Math.min(100, Math.max(0, now - lastFrameTs));
       lastFrameTs = now;
 
-      if (!isManualPaused && !isHoverPaused && !isFocusPaused && !document.hidden) {
+      if (!isPaused && !document.hidden) {
         elapsedInScene += dt;
         syncTimelineStep();
 
@@ -312,7 +339,7 @@
     }
 
     activateScene(0, false);
-    updatePlaybackIndicator();
+    updatePlaybackUI(false);
     requestAnimationFrame(tick);
   }
 
