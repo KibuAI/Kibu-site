@@ -1,6 +1,40 @@
 {
-  "updatedAt": "2026-11-13",
-  "description": "KIBU AI 추천 모델 안내 목록 (향후 신형 모델 출시 시 앱 재설치 없이 자동 반영됩니다)",
+  "updatedAt": "2026-11-24",
+  "description": "KIBU AI 주력 모델 카탈로그 및 역할별 자동 배정·강등 정책 (향후 신형 모델 출시 시 앱 재설치 없이 자동 반영됩니다)",
+  "roleDefaults": {
+    "gemini": {
+      "top": "gemini-4-argon",
+      "standard": "gemini-3.8-flash",
+      "fast": "gemini-3.5-flash-lite"
+    },
+    "openai": {
+      "top": "gpt-6.1-sol",
+      "standard": "gpt-6-sol",
+      "fast": "gpt-6-luna",
+      "safeAnchor": "gpt-5.4",
+      "safeMini": "gpt-5.4-mini"
+    }
+  },
+  "downgradeChains": {
+    "gemini": [
+      "gemini-4-carbon",
+      "gemini-4-argon",
+      "gemini-4-neon",
+      "gemini-4-hydrogen",
+      "gemini-3.8-flash",
+      "gemini-3.5-flash-lite"
+    ],
+    "openaiSol": [
+      "gpt-6.1-sol",
+      "gpt-6-sol",
+      "gpt-5.4"
+    ],
+    "openaiLuna": [
+      "gpt-6-luna",
+      "gpt-5.4-mini",
+      "gpt-5.4"
+    ]
+  },
   "models": [
     {
       "provider": "openai",
@@ -33,9 +67,21 @@
       "recommended": true
     },
     {
+      "provider": "openai",
+      "modelId": "gpt-5.4",
+      "friendlyRoleNote": "전 계정 호환 안정 기준 모델",
+      "recommended": true
+    },
+    {
       "provider": "gemini",
       "modelId": "gemini-4-argon",
       "friendlyRoleNote": "흐린 손글씨 · 시각 활동지 정밀 판독 권장",
+      "recommended": true
+    },
+    {
+      "provider": "gemini",
+      "modelId": "gemini-4-neon",
+      "friendlyRoleNote": "Gemini 4 신형 고성능 추론·시각 판독 모델",
       "recommended": true
     },
     {
